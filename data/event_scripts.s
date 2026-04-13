@@ -150,6 +150,8 @@ gStdScripts_End::
 	.include "data/maps/Route107/scripts.inc"
 	.include "data/maps/Route108/scripts.inc"
 	.include "data/maps/Route109/scripts.inc"
+.include "data/maps/SSEnnaDeck/scripts.inc"
+.include "data/maps/Transition/scripts.inc"
 	.include "data/maps/Route110/scripts.inc"
 	.include "data/maps/Route111/scripts.inc"
 	.include "data/maps/Route112/scripts.inc"

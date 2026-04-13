@@ -1,0 +1,2 @@
+tools/mapjson/mapjson map emerald data/maps/LittlerootTown_MaysHouse_1F/map.json data/layouts/layouts.json data/maps/LittlerootTown_MaysHouse_1F
+Value for 'dest_warp_id' cannot be empty.

@@ -1,0 +1,13 @@
+#define LOCALID_BEA_TRANSITION, 1
+#define LOCALID_DOC_B_TRANSITION, 2
+#define LOCALID_DOC_A_TRANSITION, 3
+
+Transition_MapScripts::
+    map_script MAP_SCRIPT_ON_LOAD, Transition_EventScript_WarpToBramblewood
+    .byte 0
+
+Transition_EventScript_WarpToBramblewood::
+    fadescreen FADE_TO_BLACK
+    warp MAP_LITTLEROOT_TOWN, 11, 19
+    waitstate
+    end

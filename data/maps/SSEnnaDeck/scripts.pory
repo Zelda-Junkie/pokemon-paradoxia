@@ -1,0 +1,108 @@
+raw `
+SSEnnaDeck_MapScripts::
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, SSEnnaDeck_OnFrame
+    .byte 0
+
+SSEnnaDeck_OnFrame:
+    map_script_2 VAR_ENNA_INTRO_STATE, 21, SSEnnaDeck_EventScript_Intro
+    .2byte 0
+
+SSEnnaDeck_EventScript_Intro::
+    lockall
+    setvar VAR_ENNA_INTRO_STATE, 22
+    applymovement LOCALID_ENNA_BEA, SSEnnaDeck_Movement_BeaFacePlayer
+    applymovement LOCALID_ENNA_CAPTAIN, SSEnnaDeck_Movement_LookAround
+    waitmovement 0
+    msgbox SSEnnaDeck_Text_BeaName, MSGBOX_NPC
+    special Special_ParadoxiaDoNamingScreen
+    waitstate
+    msgbox SSEnnaDeck_Text_BeaAlola, MSGBOX_NPC
+    msgbox SSEnnaDeck_Text_BeaAlola2, MSGBOX_NPC
+    applymovement LOCALID_ENNA_CAPTAIN, SSEnnaDeck_Movement_CaptainApproach
+    waitmovement 0
+    applymovement LOCALID_ENNA_BEA, SSEnnaDeck_Movement_FaceUp
+    applymovement LOCALID_ENNA_CAPTAIN, SSEnnaDeck_Movement_FaceDown
+    waitmovement 0
+    msgbox SSEnnaDeck_Text_CaptainHm, MSGBOX_NPC
+    msgbox SSEnnaDeck_Text_BeaGoodHm, MSGBOX_NPC
+    msgbox SSEnnaDeck_Text_CaptainIsland, MSGBOX_NPC
+    applymovement LOCALID_ENNA_BEA, SSEnnaDeck_Movement_LookAround
+    msgbox SSEnnaDeck_Text_BeaOurIsland, MSGBOX_NPC
+    msgbox SSEnnaDeck_Text_CaptainNo, MSGBOX_NPC
+    msgbox SSEnnaDeck_Text_BeaWhyCare, MSGBOX_NPC
+    msgbox SSEnnaDeck_Text_CaptainNotSupposed, MSGBOX_NPC
+    msgbox SSEnnaDeck_Text_CaptainFuel, MSGBOX_NPC
+    fadescreen FADE_TO_BLACK
+    warp MAP_ROUTE109, 17, 36
+    waitstate
+    releaseall
+    end
+
+SSEnnaDeck_Movement_FaceLeft:
+    face_left
+    step_end
+
+SSEnnaDeck_Movement_FaceRight:
+    face_right
+    step_end
+
+SSEnnaDeck_Movement_FaceDown:
+    face_down
+    step_end
+
+SSEnnaDeck_Movement_FaceUp:
+    face_up
+    step_end
+
+SSEnnaDeck_Movement_BeaFacePlayer:
+    face_player
+    step_end
+
+SSEnnaDeck_Movement_LookAround:
+    face_up
+    delay_16
+    face_right
+    delay_8
+    face_up
+    delay_16
+    step_end
+
+SSEnnaDeck_Movement_CaptainApproach:
+    walk_down
+    walk_down
+    face_left
+    step_end
+
+SSEnnaDeck_Text_BeaName:
+    .string "Bea: I just love the sea breeze!\n It's so peaceful, and a nice change from the \lhustle and bustle of Lumiose City!\p Alolan Pokemon are the best! They're so cute!\p What's your name, anyways?$"
+
+SSEnnaDeck_Text_BeaAlola:
+    .string "Bea: Nice to meet you, {PLAYER}!\p My name is Bea.\nI'm so excited to visit Alola!\pThe sandy beaches, gorgeous sunsets,\land the warm climate! I can't wait!$"
+
+SSEnnaDeck_Text_BeaAlola2:
+    .string "Bea: How long will it take to get there?$"
+
+SSEnnaDeck_Text_CaptainHm:
+    .string "Captain: We should get there in\nabout tw-...Hm.$"
+
+SSEnnaDeck_Text_BeaGoodHm:
+    .string "Bea: Was that a good hm or a bad hm?$"
+
+SSEnnaDeck_Text_CaptainIsland:
+    .string "Captain: It's an 'there is an\nisland here' hm.$"
+
+SSEnnaDeck_Text_BeaOurIsland:
+    .string "Bea: Is that our island?$"
+
+SSEnnaDeck_Text_CaptainNo:
+    .string "Captain: No.$"
+
+SSEnnaDeck_Text_BeaWhyCare:
+    .string "Bea: Then why do we care?\nWe passed plenty of islands on the way.$"
+
+SSEnnaDeck_Text_CaptainNotSupposed:
+    .string "Captain: There isn't supposed to be\nan island here.\lEither way, we need to check it out.$"
+
+SSEnnaDeck_Text_CaptainFuel:
+    .string "Captain: We're running low on fuel.\nWe need to stock up on supplies.$"
+`

@@ -9323,6 +9323,26 @@
       "border_height": 2,
       "border_width": 2,
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_TRANSITION",
+      "name": "Transition_Layout",
+      "width": 40,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/Transition/border.bin",
+      "blockdata_filepath": "data/layouts/Transition/map.bin"
+    },
+    {
+      "id": "LAYOUT_SSENNA_DECK",
+      "name": "SSEnnaDeck_Layout",
+      "width": 10,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/SSEnnaDeck/border.bin",
+      "blockdata_filepath": "data/layouts/SSEnnaDeck/map.bin"
     }
   ]
 }

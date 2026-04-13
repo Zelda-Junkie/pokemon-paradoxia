@@ -1,0 +1,122 @@
+raw `
+LittlerootTown_ProfessorBirchsLab_MapScripts::
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, BirchsLab_OnFrame
+    .byte 0
+
+BirchsLab_OnFrame:
+    map_script_2 VAR_ENNA_INTRO_STATE, 23, BirchsLab_EventScript_LabScene
+    .2byte 0
+
+BirchsLab_EventScript_LabScene::
+    lockall
+    setvar VAR_ENNA_INTRO_STATE, 24
+    applymovement LOCALID_DOC_B_LAB, BirchsLab_Movement_DocBFacePlayer
+    applymovement LOCALID_DOC_A_LAB, BirchsLab_Movement_DocAFacePlayer
+    applymovement LOCALID_BEA_LAB, BirchsLab_Movement_BeaFaceUp
+    waitmovement 0
+    msgbox BirchsLab_Text_DocBWelcome, MSGBOX_NPC
+    msgbox BirchsLab_Text_DocBChoose, MSGBOX_NPC
+    special ChooseStarter
+    waitstate
+    call_if_eq VAR_STARTER_MON, 0, BirchsLab_EventScript_GiveSprigatito
+    call_if_eq VAR_STARTER_MON, 1, BirchsLab_EventScript_GiveFuecoco
+    call_if_eq VAR_STARTER_MON, 2, BirchsLab_EventScript_GiveQuaxly
+    call_if_eq VAR_STARTER_MON, 0, BirchsLab_EventScript_BeaGetsFuecoco
+    call_if_eq VAR_STARTER_MON, 1, BirchsLab_EventScript_BeaGetsQuaxly
+    call_if_eq VAR_STARTER_MON, 2, BirchsLab_EventScript_BeaGetsSprigatito
+    msgbox BirchsLab_Text_BeaLikesIt, MSGBOX_NPC
+    msgbox BirchsLab_Text_DocAGoodLuck, MSGBOX_NPC
+    msgbox BirchsLab_Text_BeaChallenge, MSGBOX_NPC
+    releaseall
+    end
+
+BirchsLab_EventScript_GiveSprigatito::
+    givemon SPECIES_SPRIGATITO, 5, ITEM_NONE
+    return
+
+BirchsLab_EventScript_GiveFuecoco::
+    givemon SPECIES_FUECOCO, 5, ITEM_NONE
+    return
+
+BirchsLab_EventScript_GiveQuaxly::
+    givemon SPECIES_QUAXLY, 5, ITEM_NONE
+    return
+
+BirchsLab_EventScript_BeaGetsFuecoco::
+    msgbox BirchsLab_Text_DocBGivesBea, MSGBOX_NPC
+    return
+
+BirchsLab_EventScript_BeaGetsQuaxly::
+    msgbox BirchsLab_Text_DocBGivesBea, MSGBOX_NPC
+    return
+
+BirchsLab_EventScript_BeaGetsSprigatito::
+    msgbox BirchsLab_Text_DocBGivesBea, MSGBOX_NPC
+    return
+
+BirchsLab_Movement_DocBFacePlayer:
+    face_down
+    step_end
+
+BirchsLab_Movement_DocAFacePlayer:
+    face_down
+    step_end
+
+BirchsLab_Movement_BeaFaceUp:
+    face_up
+    step_end
+
+BirchsLab_Text_DocBWelcome:
+    .string "Doc B: Welcome!$"
+
+BirchsLab_Text_DocBChoose:
+    .string "Doc B: Now then! Choose your\npartner!$"
+
+BirchsLab_Text_DocBGivesBea:
+    .string "Doc B: And for you- Bea!\nPerfect.$"
+
+BirchsLab_Text_BeaLikesIt:
+    .string "Bea: Oh. I really like its face.$"
+
+BirchsLab_Text_DocAGoodLuck:
+    .string "Doc A: Good luck.$"
+
+BirchsLab_Text_BeaChallenge:
+    .string "Bea: Yours did really well in\nthere!\pMine seemed very confident\nabout something.\lI'm not sure what.\pI heard there's a good sandwich\nplace up ahead. See you there!$"
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Aide::
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Birch::
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Rival::
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Cyndaquil::
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Totodile::
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Chikorita::
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Machine::
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Book::
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf::
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_PC::
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall::
+    end
+
+EventScript_RegisterProfBirch::
+    end
+`

@@ -1,0 +1,179 @@
+raw `
+Route109_MapScripts::
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, Route109_OnFrame
+    .byte 0
+
+Route109_OnFrame:
+    map_script_2 VAR_ENNA_INTRO_STATE, 22, Route109_EventScript_DockScene
+    .2byte 0
+
+Route109_EventScript_DockScene::
+    lockall
+    setvar VAR_ENNA_INTRO_STATE, 23
+    clearflag FLAG_HIDE_DOCK_DOC_B
+    clearflag FLAG_HIDE_DOCK_DOC_A
+    clearflag FLAG_HIDE_DOCK_BEA
+    applymovement LOCALID_DOC_B, Route109_Movement_FaceLeft
+    applymovement LOCALID_DOC_A, Route109_Movement_FaceLeft
+	applymovement LOCALID_BEA, Route109_Movement_FaceRight
+	applymovement OBJ_EVENT_ID_PLAYER, Route109_Movement_FaceRight
+	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceRight
+    waitmovement 0
+    msgbox Route109_Text_DocBTheretheyare, MSGBOX_NPC
+    msgbox Route109_Text_DocATheboat, MSGBOX_NPC
+    msgbox Route109_Text_DocBAndyet, MSGBOX_NPC
+    msgbox Route109_Text_DocAWrongname, MSGBOX_NPC
+    msgbox Route109_Text_DocBConfident, MSGBOX_NPC
+	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceDown
+    msgbox Route109_Text_CaptainWhere, MSGBOX_NPC
+	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceRight
+    msgbox Route109_Text_DocBParadoxia, MSGBOX_NPC
+	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceDown
+    msgbox Route109_Text_CaptainCharts, MSGBOX_NPC
+	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceRight
+    msgbox Route109_Text_DocBNo, MSGBOX_NPC
+	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceDown
+    msgbox Route109_Text_CaptainAnycharts, MSGBOX_NPC
+	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceRight
+    msgbox Route109_Text_DocBProbablynot, MSGBOX_NPC
+	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceDown
+    msgbox Route109_Text_CaptainMinute, MSGBOX_NPC
+	msgbox Route109_Text_DocALab, MSGBOX_NPC
+	fadescreen FADE_TO_BLACK
+	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 6, 8
+	waitstate
+    releaseall
+    end
+
+Route109_Movement_FaceLeft:
+    face_left
+    step_end
+
+Route109_Movement_FaceRight:
+    face_right
+    step_end
+
+Route109_Movement_FaceDown:
+    face_down
+    step_end
+
+Route109_Text_DocBTheretheyare:
+    .string "Doc B: There they are! Right on time!$"
+
+Route109_Text_DocATheboat:
+    .string "Doc A: The boat was going to Alola.$"
+
+Route109_Text_DocBAndyet:
+    .string "Doc B: And yet!$"
+
+Route109_Text_DocASorry:
+    .string "Doc A: I'm so sorry about... this.\nAnd the sign.$"
+
+Route109_Text_DocBSigncorrect:
+    .string "Doc B: The sign is correct.$"
+
+Route109_Text_DocAWrongname:
+    .string "Doc A: You said your name was {PLAYER}?$"
+
+Route109_Text_DocBConfident:
+    .string "Doc B: I'm confident they said Alex.$"
+
+Route109_Text_CaptainWhere:
+    .string "Captain: Excuse me, I hate to interrupt. Where is this?$"
+
+Route109_Text_DocBParadoxia:
+    .string "Doc B: Paradoxia!$"
+
+Route109_Text_CaptainCharts:
+    .string "Captain: That's not on my charts.$"
+
+Route109_Text_DocBNo:
+    .string "Doc B: No.$"
+
+Route109_Text_CaptainAnycharts:
+    .string "Captain: ...Is it on any charts?$"
+
+Route109_Text_DocBProbablynot:
+    .string "Doc B: Probably not!$"
+
+Route109_Text_CaptainMinute:
+    .string "Captain: I'm going to need a minute.$"
+
+Route109_Text_DocALab:
+    .string "Doc A: Everybody! Come to the lab so I can show you something interesting!$"
+
+Route109_EventScript_TrainerTipsSign::
+    end
+
+Route109_EventScript_MrBriney::
+    end
+
+Route109_EventScript_David::
+    end
+
+Route109_EventScript_Alice::
+    end
+
+Route109_EventScript_Huey::
+    end
+
+Route109_EventScript_Edmond::
+    end
+
+Route109_EventScript_Ricky::
+    end
+
+Route109_EventScript_Lola::
+    end
+
+Route109_EventScript_SeashoreHouseGirl::
+    end
+
+Route109_EventScript_Gwen::
+    end
+
+Route109_EventScript_Austina::
+    end
+
+Route109_EventScript_Carter::
+    end
+
+Route109_EventScript_SandCastleBoy::
+    end
+
+Route109_EventScript_SoftSandGirl::
+    end
+
+Route109_EventScript_Woman::
+    end
+
+Route109_EventScript_Mel::
+    end
+
+Route109_EventScript_Paul::
+    end
+
+Route109_EventScript_OldMan::
+    end
+
+Route109_EventScript_Zigzagoon::
+    end
+
+Route109_EventScript_Hailey::
+    end
+
+Route109_EventScript_Chandler::
+    end
+
+Route109_EventScript_Elijah::
+    end
+
+Route109_EventScript_SeashoreHouseSign::
+    end
+
+DewfordTown_Text_BrineyLandedInSlateportDeliverGoods:
+    .string ".$"
+
+DewfordTown_Text_BrineyLandedInSlateport:
+    .string ".$"
+`
