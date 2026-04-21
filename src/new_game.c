@@ -1,4 +1,5 @@
 #include "global.h"
+#include "constants/vars.h"
 #include "new_game.h"
 #include "random.h"
 #include "pokemon.h"
@@ -213,7 +214,8 @@ void NewGameInitData(void)
         RunScriptImmediately(EventScript_ResetAllMapFlagsFrlg);
     else
         RunScriptImmediately(EventScript_ResetAllMapFlags);
-    WarpToTruck();
+VarSet(VAR_ENNA_INTRO_STATE, 21);
+WarpToTruck();
 #if IS_FRLG
         StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
 #endif

@@ -45,6 +45,10 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "contest.h"
+#define LOCALID_CONTESTANT_1 1
+#define LOCALID_CONTESTANT_2 2
+#define LOCALID_CONTESTANT_3 3
+#define LOCALID_CONTESTANT_4 4
 
 enum {
     SLIDING_TEXT_OFFSCREEN,

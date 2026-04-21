@@ -115,15 +115,15 @@
       "x": 9,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_LITTLEROOT_TOWN",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_BRAMBLEWOOD_TOWN",
+      "dest_warp_id": "2"
     },
     {
       "x": 8,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_LITTLEROOT_TOWN",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_BRAMBLEWOOD_TOWN",
+      "dest_warp_id": "2"
     },
     {
       "x": 8,

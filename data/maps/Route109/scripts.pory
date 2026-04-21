@@ -79,7 +79,7 @@ Route109_Text_DocBConfident:
     .string "Doc B: I'm confident they said Alex.$"
 
 Route109_Text_CaptainWhere:
-    .string "Captain: Excuse me, I hate to interrupt. Where is this?$"
+    .string "Captain: Excuse me, I hate to interrupt.\nWhere is this?$"
 
 Route109_Text_DocBParadoxia:
     .string "Doc B: Paradoxia!$"
@@ -100,7 +100,7 @@ Route109_Text_CaptainMinute:
     .string "Captain: I'm going to need a minute.$"
 
 Route109_Text_DocALab:
-    .string "Doc A: Everybody! Come to the lab so I can show you something interesting!$"
+    .string "Doc A: Everybody! Come to the lab so I\ncan show you something interesting!$"
 
 Route109_EventScript_TrainerTipsSign::
     end

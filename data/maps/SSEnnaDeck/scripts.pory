@@ -31,7 +31,6 @@ SSEnnaDeck_EventScript_Intro::
     msgbox SSEnnaDeck_Text_CaptainNo, MSGBOX_NPC
     msgbox SSEnnaDeck_Text_BeaWhyCare, MSGBOX_NPC
     msgbox SSEnnaDeck_Text_CaptainNotSupposed, MSGBOX_NPC
-    msgbox SSEnnaDeck_Text_CaptainFuel, MSGBOX_NPC
     fadescreen FADE_TO_BLACK
     warp MAP_ROUTE109, 17, 36
     waitstate
@@ -74,16 +73,16 @@ SSEnnaDeck_Movement_CaptainApproach:
     step_end
 
 SSEnnaDeck_Text_BeaName:
-    .string "Bea: I just love the sea breeze!\n It's so peaceful, and a nice change from the \lhustle and bustle of Lumiose City!\p Alolan Pokemon are the best! They're so cute!\p What's your name, anyways?$"
+    .string "Bea: I just love the sea breeze!\n It's so peaceful, and a nice change\l from the hustle and bustle of\p Lumiose City!\nThe best place to feel it is Alola!\nThat's why I'm on this boat headed\pthere. What's your name, anyways?$"
 
 SSEnnaDeck_Text_BeaAlola:
-    .string "Bea: Nice to meet you, {PLAYER}!\p My name is Bea.\nI'm so excited to visit Alola!\pThe sandy beaches, gorgeous sunsets,\land the warm climate! I can't wait!$"
+    .string "Bea: Nice to meet you, {PLAYER}!\n My name is Bea.\lI'm convinced Alola is the best region.\pThe sandy beaches, gorgeous sunsets,\land the warm climate! I can't wait!$"
 
 SSEnnaDeck_Text_BeaAlola2:
     .string "Bea: How long will it take to get there?$"
 
 SSEnnaDeck_Text_CaptainHm:
-    .string "Captain: We should get there in\nabout tw-...Hm.$"
+    .string "Captain: We should get there in\nabout two days\l...Hm.$"
 
 SSEnnaDeck_Text_BeaGoodHm:
     .string "Bea: Was that a good hm or a bad hm?$"
@@ -92,7 +91,7 @@ SSEnnaDeck_Text_CaptainIsland:
     .string "Captain: It's an 'there is an\nisland here' hm.$"
 
 SSEnnaDeck_Text_BeaOurIsland:
-    .string "Bea: Is that our island?$"
+    .string "Bea: Is it Melemele island?$"
 
 SSEnnaDeck_Text_CaptainNo:
     .string "Captain: No.$"
@@ -101,7 +100,7 @@ SSEnnaDeck_Text_BeaWhyCare:
     .string "Bea: Then why do we care?\nWe passed plenty of islands on the way.$"
 
 SSEnnaDeck_Text_CaptainNotSupposed:
-    .string "Captain: There isn't supposed to be\nan island here.\lEither way, we need to check it out.$"
+    .string "Captain: There isn't supposed to be\nan island here. Either way, we need to\lcheck it out.\pWe're running low on fuel. We need to\nstock up on supplies.$"
 
 SSEnnaDeck_Text_CaptainFuel:
     .string "Captain: We're running low on fuel.\nWe need to stock up on supplies.$"

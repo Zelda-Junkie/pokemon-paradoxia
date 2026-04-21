@@ -1,3 +1,5 @@
+#define LOCALID_PIKE_ROOM_NPC_1 1
+#define LOCALID_PIKE_ROOM_NPC_2 2
 BattleFrontier_BattlePikeRoom_MapScripts:
 	map_script MAP_SCRIPT_ON_TRANSITION, BattleFrontier_BattlePikeRoom_OnTransition
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, BattleFrontier_BattlePikeRoom_OnWarp

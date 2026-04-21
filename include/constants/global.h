@@ -228,6 +228,50 @@ enum Connection
 
 #if TESTING
 #include "config/test.h"
+#include "constants/paradoxia_localids.h"
 #endif
 
 #endif // GUARD_CONSTANTS_GLOBAL_H
+
+// Paradoxia stubs — deleted map LOCALID/LAYOUT constants
+#define LOCALID_RUSTURF_TUNNEL_WANDAS_BF  1
+#define LOCALID_RUSTURF_TUNNEL_WANDA      2
+#define LOCALID_DAYCARE_LADY              1
+#define LOCALID_LILYCOVE_LADY             1
+#define LOCALID_LILYCOVE_LADYS_MON        2
+#define LOCALID_APPRENTICE                1
+#define LOCALID_PIKE_ROOM_NPC_1           1
+#define LOCALID_PIKE_ROOM_NPC_2           2
+#define LOCALID_FARAWAY_ISLAND_MEW        1
+#define LOCALID_BIRTH_ISLAND_EXTERIOR_ROCK 1
+#define LOCALID_TRUCK_BOX_BOTTOM_L        1
+#define LOCALID_TRUCK_BOX_BOTTOM_R        2
+#define LOCALID_TRUCK_BOX_TOP             3
+#define LOCALID_ROUTE111_GABBY_1          1
+#define LOCALID_ROUTE111_GABBY_2          2
+#define LOCALID_ROUTE111_GABBY_3          3
+#define LOCALID_ROUTE111_PLAYER_FALLING   4
+#define LOCALID_ROUTE111_TY_1             5
+#define LOCALID_ROUTE111_TY_2             6
+#define LOCALID_ROUTE111_TY_3             7
+#define LOCALID_ROUTE118_GABBY_1          1
+#define LOCALID_ROUTE118_GABBY_2          2
+#define LOCALID_ROUTE118_GABBY_3          3
+#define LOCALID_ROUTE118_TY_1             4
+#define LOCALID_ROUTE118_TY_2             5
+#define LOCALID_ROUTE118_TY_3             6
+#define LOCALID_ROUTE120_GABBY_1          1
+#define LOCALID_ROUTE120_GABBY_2          2
+#define LOCALID_ROUTE120_TY_1             3
+#define LOCALID_ROUTE120_TY_2             4
+#define LOCALID_UNION_ROOM_PLAYER_1       1
+#define LOCALID_UNION_ROOM_PLAYER_2       2
+#define LOCALID_UNION_ROOM_PLAYER_3       3
+#define LOCALID_UNION_ROOM_PLAYER_4       4
+#define LOCALID_UNION_ROOM_PLAYER_5       5
+#define LOCALID_UNION_ROOM_PLAYER_6       6
+#define LOCALID_UNION_ROOM_PLAYER_7       7
+#define LOCALID_UNION_ROOM_PLAYER_8       8
+#define LAYOUT_SS_TIDAL_CORRIDOR          1
+#define LAYOUT_SS_TIDAL_LOWER_DECK        2
+#define LAYOUT_SS_TIDAL_ROOMS             3

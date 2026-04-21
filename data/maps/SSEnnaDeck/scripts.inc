@@ -65,150 +65,148 @@ SSEnnaDeck_EventScript_Intro::
 # 33 "data/maps/SSEnnaDeck/scripts.pory"
     msgbox SSEnnaDeck_Text_CaptainNotSupposed, MSGBOX_NPC
 # 34 "data/maps/SSEnnaDeck/scripts.pory"
-    msgbox SSEnnaDeck_Text_CaptainFuel, MSGBOX_NPC
-# 35 "data/maps/SSEnnaDeck/scripts.pory"
     fadescreen FADE_TO_BLACK
-# 36 "data/maps/SSEnnaDeck/scripts.pory"
+# 35 "data/maps/SSEnnaDeck/scripts.pory"
     warp MAP_ROUTE109, 17, 36
-# 37 "data/maps/SSEnnaDeck/scripts.pory"
+# 36 "data/maps/SSEnnaDeck/scripts.pory"
     waitstate
-# 38 "data/maps/SSEnnaDeck/scripts.pory"
+# 37 "data/maps/SSEnnaDeck/scripts.pory"
     releaseall
-# 39 "data/maps/SSEnnaDeck/scripts.pory"
+# 38 "data/maps/SSEnnaDeck/scripts.pory"
     end
+# 39 "data/maps/SSEnnaDeck/scripts.pory"
+
 # 40 "data/maps/SSEnnaDeck/scripts.pory"
-
-# 41 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Movement_FaceLeft:
-# 42 "data/maps/SSEnnaDeck/scripts.pory"
+# 41 "data/maps/SSEnnaDeck/scripts.pory"
     face_left
+# 42 "data/maps/SSEnnaDeck/scripts.pory"
+    step_end
 # 43 "data/maps/SSEnnaDeck/scripts.pory"
-    step_end
+
 # 44 "data/maps/SSEnnaDeck/scripts.pory"
-
-# 45 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Movement_FaceRight:
+# 45 "data/maps/SSEnnaDeck/scripts.pory"
+    face_right
 # 46 "data/maps/SSEnnaDeck/scripts.pory"
-    face_right
+    step_end
 # 47 "data/maps/SSEnnaDeck/scripts.pory"
-    step_end
+
 # 48 "data/maps/SSEnnaDeck/scripts.pory"
-
-# 49 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Movement_FaceDown:
-# 50 "data/maps/SSEnnaDeck/scripts.pory"
+# 49 "data/maps/SSEnnaDeck/scripts.pory"
     face_down
+# 50 "data/maps/SSEnnaDeck/scripts.pory"
+    step_end
 # 51 "data/maps/SSEnnaDeck/scripts.pory"
-    step_end
+
 # 52 "data/maps/SSEnnaDeck/scripts.pory"
-
-# 53 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Movement_FaceUp:
+# 53 "data/maps/SSEnnaDeck/scripts.pory"
+    face_up
 # 54 "data/maps/SSEnnaDeck/scripts.pory"
-    face_up
+    step_end
 # 55 "data/maps/SSEnnaDeck/scripts.pory"
-    step_end
+
 # 56 "data/maps/SSEnnaDeck/scripts.pory"
-
-# 57 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Movement_BeaFacePlayer:
-# 58 "data/maps/SSEnnaDeck/scripts.pory"
+# 57 "data/maps/SSEnnaDeck/scripts.pory"
     face_player
+# 58 "data/maps/SSEnnaDeck/scripts.pory"
+    step_end
 # 59 "data/maps/SSEnnaDeck/scripts.pory"
-    step_end
+
 # 60 "data/maps/SSEnnaDeck/scripts.pory"
-
-# 61 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Movement_LookAround:
+# 61 "data/maps/SSEnnaDeck/scripts.pory"
+    face_up
 # 62 "data/maps/SSEnnaDeck/scripts.pory"
-    face_up
+    delay_16
 # 63 "data/maps/SSEnnaDeck/scripts.pory"
-    delay_16
-# 64 "data/maps/SSEnnaDeck/scripts.pory"
     face_right
-# 65 "data/maps/SSEnnaDeck/scripts.pory"
+# 64 "data/maps/SSEnnaDeck/scripts.pory"
     delay_8
-# 66 "data/maps/SSEnnaDeck/scripts.pory"
+# 65 "data/maps/SSEnnaDeck/scripts.pory"
     face_up
-# 67 "data/maps/SSEnnaDeck/scripts.pory"
+# 66 "data/maps/SSEnnaDeck/scripts.pory"
     delay_16
-# 68 "data/maps/SSEnnaDeck/scripts.pory"
+# 67 "data/maps/SSEnnaDeck/scripts.pory"
     step_end
-# 69 "data/maps/SSEnnaDeck/scripts.pory"
+# 68 "data/maps/SSEnnaDeck/scripts.pory"
 
-# 70 "data/maps/SSEnnaDeck/scripts.pory"
+# 69 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Movement_CaptainApproach:
+# 70 "data/maps/SSEnnaDeck/scripts.pory"
+    walk_down
 # 71 "data/maps/SSEnnaDeck/scripts.pory"
     walk_down
 # 72 "data/maps/SSEnnaDeck/scripts.pory"
-    walk_down
-# 73 "data/maps/SSEnnaDeck/scripts.pory"
     face_left
-# 74 "data/maps/SSEnnaDeck/scripts.pory"
+# 73 "data/maps/SSEnnaDeck/scripts.pory"
     step_end
+# 74 "data/maps/SSEnnaDeck/scripts.pory"
+
 # 75 "data/maps/SSEnnaDeck/scripts.pory"
-
-# 76 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Text_BeaName:
+# 76 "data/maps/SSEnnaDeck/scripts.pory"
+    .string "Bea: I just love the sea breeze!\n It's so peaceful, and a nice change\l from the hustle and bustle of\p Lumiose City!\nThe best place to feel it is Alola!\nThat's why I'm on this boat headed\pthere. What's your name, anyways?$"
 # 77 "data/maps/SSEnnaDeck/scripts.pory"
-    .string "Bea: I just love the sea breeze!\n It's so peaceful, and a nice change from the \lhustle and bustle of Lumiose City!\p Alolan Pokemon are the best! They're so cute!\p What's your name, anyways?$"
+
 # 78 "data/maps/SSEnnaDeck/scripts.pory"
-
-# 79 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Text_BeaAlola:
+# 79 "data/maps/SSEnnaDeck/scripts.pory"
+    .string "Bea: Nice to meet you, {PLAYER}!\n My name is Bea.\lI'm convinced Alola is the best region.\pThe sandy beaches, gorgeous sunsets,\land the warm climate! I can't wait!$"
 # 80 "data/maps/SSEnnaDeck/scripts.pory"
-    .string "Bea: Nice to meet you, {PLAYER}!\p My name is Bea.\nI'm so excited to visit Alola!\pThe sandy beaches, gorgeous sunsets,\land the warm climate! I can't wait!$"
+
 # 81 "data/maps/SSEnnaDeck/scripts.pory"
-
-# 82 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Text_BeaAlola2:
-# 83 "data/maps/SSEnnaDeck/scripts.pory"
+# 82 "data/maps/SSEnnaDeck/scripts.pory"
     .string "Bea: How long will it take to get there?$"
+# 83 "data/maps/SSEnnaDeck/scripts.pory"
+
 # 84 "data/maps/SSEnnaDeck/scripts.pory"
-
-# 85 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Text_CaptainHm:
+# 85 "data/maps/SSEnnaDeck/scripts.pory"
+    .string "Captain: We should get there in\nabout two days\l...Hm.$"
 # 86 "data/maps/SSEnnaDeck/scripts.pory"
-    .string "Captain: We should get there in\nabout tw-...Hm.$"
+
 # 87 "data/maps/SSEnnaDeck/scripts.pory"
-
-# 88 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Text_BeaGoodHm:
-# 89 "data/maps/SSEnnaDeck/scripts.pory"
+# 88 "data/maps/SSEnnaDeck/scripts.pory"
     .string "Bea: Was that a good hm or a bad hm?$"
+# 89 "data/maps/SSEnnaDeck/scripts.pory"
+
 # 90 "data/maps/SSEnnaDeck/scripts.pory"
-
-# 91 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Text_CaptainIsland:
-# 92 "data/maps/SSEnnaDeck/scripts.pory"
+# 91 "data/maps/SSEnnaDeck/scripts.pory"
     .string "Captain: It's an 'there is an\nisland here' hm.$"
+# 92 "data/maps/SSEnnaDeck/scripts.pory"
+
 # 93 "data/maps/SSEnnaDeck/scripts.pory"
-
-# 94 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Text_BeaOurIsland:
+# 94 "data/maps/SSEnnaDeck/scripts.pory"
+    .string "Bea: Is it Melemele island?$"
 # 95 "data/maps/SSEnnaDeck/scripts.pory"
-    .string "Bea: Is that our island?$"
+
 # 96 "data/maps/SSEnnaDeck/scripts.pory"
-
-# 97 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Text_CaptainNo:
-# 98 "data/maps/SSEnnaDeck/scripts.pory"
+# 97 "data/maps/SSEnnaDeck/scripts.pory"
     .string "Captain: No.$"
+# 98 "data/maps/SSEnnaDeck/scripts.pory"
+
 # 99 "data/maps/SSEnnaDeck/scripts.pory"
-
-# 100 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Text_BeaWhyCare:
-# 101 "data/maps/SSEnnaDeck/scripts.pory"
+# 100 "data/maps/SSEnnaDeck/scripts.pory"
     .string "Bea: Then why do we care?\nWe passed plenty of islands on the way.$"
+# 101 "data/maps/SSEnnaDeck/scripts.pory"
+
 # 102 "data/maps/SSEnnaDeck/scripts.pory"
-
-# 103 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Text_CaptainNotSupposed:
+# 103 "data/maps/SSEnnaDeck/scripts.pory"
+    .string "Captain: There isn't supposed to be\nan island here. Either way, we need to\lcheck it out.\pWe're running low on fuel. We need to\nstock up on supplies.$"
 # 104 "data/maps/SSEnnaDeck/scripts.pory"
-    .string "Captain: There isn't supposed to be\nan island here.\lEither way, we need to check it out.$"
-# 105 "data/maps/SSEnnaDeck/scripts.pory"
 
-# 106 "data/maps/SSEnnaDeck/scripts.pory"
+# 105 "data/maps/SSEnnaDeck/scripts.pory"
 SSEnnaDeck_Text_CaptainFuel:
-# 107 "data/maps/SSEnnaDeck/scripts.pory"
+# 106 "data/maps/SSEnnaDeck/scripts.pory"
     .string "Captain: We're running low on fuel.\nWe need to stock up on supplies.$"

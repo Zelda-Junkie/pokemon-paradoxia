@@ -9343,6 +9343,26 @@
       "secondary_tileset": "gTileset_InsideShip",
       "border_filepath": "data/layouts/SSEnnaDeck/border.bin",
       "blockdata_filepath": "data/layouts/SSEnnaDeck/map.bin"
+    },
+    {
+      "id": "LAYOUT_BRAMBLEWOOD_TOWN",
+      "name": "BramblewoodTown_Layout",
+      "width": 22,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/BramblewoodTown/border.bin",
+      "blockdata_filepath": "data/layouts/BramblewoodTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE1000",
+      "name": "Route1000_Layout",
+      "width": 20,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Route1000/border.bin",
+      "blockdata_filepath": "data/layouts/Route1000/map.bin"
     }
   ]
 }

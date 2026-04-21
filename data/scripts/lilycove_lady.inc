@@ -1,3 +1,7 @@
+#define LOCALID_RUSTURF_TUNNEL_WANDAS_BF 1
+#define LOCALID_RUSTURF_TUNNEL_WANDA 2
+#define LOCALID_LILYCOVE_LADY 1
+#define LOCALID_LILYCOVE_LADYS_MON 2
 LilycoveCity_PokemonCenter_1F_EventScript_LilycoveLady::
 	special Script_GetLilycoveLadyId
 	switch VAR_RESULT

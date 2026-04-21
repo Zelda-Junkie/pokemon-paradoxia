@@ -1,3 +1,4 @@
+#define LOCALID_APPRENTICE 1
 BattleFrontier_BattleTowerLobby_EventScript_Apprentice::
 	lock
 	faceplayer

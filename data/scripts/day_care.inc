@@ -1,3 +1,4 @@
+#define LOCALID_DAYCARE_LADY 1
 Route117_EventScript_DaycareMan::
 	lock
 	faceplayer

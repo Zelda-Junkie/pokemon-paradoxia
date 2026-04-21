@@ -8,6 +8,7 @@
 #include "constants/event_objects.h"
 #include "constants/field_effects.h"
 #include "constants/metatile_behaviors.h"
+#define LOCALID_FARAWAY_ISLAND_MEW 1
 
 static enum Direction GetValidMewMoveDirection(enum Direction);
 static bool8 ShouldMewMoveNorth(struct ObjectEvent *, u8);
