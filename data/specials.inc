@@ -638,4 +638,8 @@ gSpecials::
 	def_special UpdateTrainerCardPhotoIcons
 	def_special StickerManGetBragFlags
 	def_special CheckAddCoins
-def_special Special_ParadoxiaDoNamingScreen
+	def_special Special_ParadoxiaDoNamingScreen
+	def_special ShowPickSprigatito
+	def_special ShowPickFuecoco
+	def_special ShowPickQuaxly
+	def_special HidePickPokemon

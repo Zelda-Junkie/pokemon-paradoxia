@@ -1,6 +1,6 @@
 # POKEMON: PARADOXIA
 ## Game Design Document
-### Session 15 — Full Design Bible
+### Session 19 — Full Design Bible
 #### April 2026
 
 *The living game design document for Pokemon: Paradoxia — a ROM hack built on Pokemon Emerald using the pokeemerald Expansion base. Updated at the end of every design session.*
@@ -61,6 +61,40 @@
 - Transition map warp scripted — MAP_SCRIPT_ON_LOAD fires immediately, warps to LittlerootTown at 11,19
 - LibreSprite could not be opened on macOS 26 due to code signature restrictions. Aseprite compiled from source (aseprite-m124 + Skia m124-08a5439a6b, arm64) and installed at ~/Desktop/aseprite-build/aseprite/build/bin/aseprite.app
 - Shiny palette generator tool built as an interactive artifact — takes JASC-PAL input, outputs hue-shifted shiny palette with live swatch preview
+
+## Session 19 Changes
+- Pebble Creek (formerly Route1000) — map layout completed in Porymap with Pokémon Center, Mart, two houses, bridge over river, and building with sign. River splits the town visually, sets up The Sandwich Person bridge blockade.
+- `include/constants/vars.h` — attempted cleanup to remove vanilla vars and rename to `VAR_UNUSED_0x####`. Reverted after discovering hundreds of cross-references in vanilla C code. Lesson: vars.h cleanup is a late-game task once vanilla C files are stripped or stubbed. Leave vanilla vars in place for now.
+- `paradoxia_stubs.c` — major expansion to cover Contest, TV show, Secret Base, Frontier, Mew/Braille, and misc functions. Ran into duplicate stub errors from a partial heredoc append (lowercase `eof` instead of `EOF`). Fix: `grep -n "// Contest stubs" src/paradoxia_stubs.c` to find duplicate line, then `head -n [line-1] src/paradoxia_stubs.c > /tmp/clean.c && mv /tmp/clean.c src/paradoxia_stubs.c`, then re-append stubs correctly.
+- Struct type issues in stubs: `ContestCategory` and `BattleFrontierMon` are incomplete types — stubs for these globals need to use `void*` or include the correct headers (`contest.h`, `battle_frontier.h`).
+- `field_special_scene.c` — `VAR_SS_TIDAL_STATE` reference and `VAR_DAILY_BP` misuse identified. File needs stubs or the two offending functions (`Task_HandlePorthole`, `ShowSSTidalWhileSailing`) need to be gutted.
+- Map connection workflow confirmed: Route109 → BramblewoodTown direct north/south connection working. Tileset boundary change happens at connection edge — normal GBA behaviour, acceptable.
+- Porymap layout regeneration workflow confirmed: new maps save their layouts automatically on first save. Python script only needed for vanilla maps Porymap won't touch.
+- `make clean` exposes latent Makefile bugs — `find data/` in `ALL_TUTORS_JSON` rule narrowed to `find data/scripts/` last session; confirmed still working.
+
+## Session 18 Changes
+- `BramblewoodDock` and `BramblewoodTo109` connector maps created in Porymap — both replaced by direct map connection between Route109 and BramblewoodTown (tileset boundary handled at connection edge, standard GBA behaviour)
+- Route109 connected directly to BramblewoodTown via north/south map connections in Porymap
+- Wild encounter tables added to BramblewoodTown via Porymap — `src/data/wild_encounters.json` updated; `wild_encounters.h` regenerated via `python3 tools/wild_encounters/wild_encounters_to_header.py`; `src/wild_encounter.c` touched to force recompile
+- Makefile `find data/` dependency in `ALL_TUTORS_JSON` rule narrowed to `find data/scripts/` — `make clean` was exposing phantom `data/maps/events` directory as a file target, breaking full rebuilds
+- `map_groups.json` trailing comma after `Route1000` fixed — was breaking Porymap project load
+- `layouts.json` Python append script duplicate entries resolved — Porymap 6.3 now writes layout entries for new maps on save; Python script only needed for vanilla maps Porymap won't touch
+- Additional linker stubs identified and resolved: Mirage Tower functions exist in `src/mirage_tower.c`, Mon Markings in `src/mon_markings.c`, Pokenav functions in `src/pokenav_main_menu.c`, MatchCall functions in `src/pokenav_match_call_data.c` — stubs removed from `paradoxia_stubs.c` after duplicate definition errors
+- `LOCALID_BEA` in `Route109/scripts.pory` corrected to `LOCALID_BEA_DOCK` (value 2) — matches `map_event_ids.h` generated definition; injected defines removed from `scripts.inc`
+- Route 1000 map layout completed in Porymap — grass patches, trees, clear path, two open rest areas. Events and NPCs pending.
+- Crashes at 3000fps in mGBA identified as emulator timing artifacts — not code bugs. Test at normal speed.
+
+## Session 17 Changes
+- `src/paradoxia_stubs.c` created — stubs all ~350 deleted Battle Frontier/vanilla linker symbols: `const u8 Symbol[] = {0xFF}` for text strings, `{0x02}` (end) for script pointers, `{0xFE}` (step_end) for movement scripts
+- Missing Littleroot layout entries generated via Python script reading `data/layouts/layouts.json` directly — appended to `data/layouts/layouts.inc` and `data/layouts/layouts_table.inc`; Porymap 6.3 was not regenerating these entries for maps it considered unmodified
+- All deleted-map LOCALID/LAYOUT stubs moved from `include/global.h` to `include/constants/global.h` — `event_scripts.s` includes `constants/global.h` via cpp, not `global.h`; stubs were assembler-invisible until moved
+- LOCALID defines injected directly into `data/scripts/apprentice.inc`, `data/scripts/day_care.inc`, `data/scripts/battle_pike.inc`, `data/scripts/lilycove_lady.inc` — these raw `.inc` files are assembled directly and do not go through cpp
+- LOCALID numeric values injected at top of `data/maps/Route109/scripts.inc` — poryscript recompile did not replace symbolic LOCALID names with values; defines injected directly as workaround
+- Poryscript path confirmed as `./tools/poryscript` (single binary at project root); `command_config.json` and `font_config.json` are in project root, not in a subdirectory
+- **Clean link achieved** — `pokeemerald.elf` builds successfully. EWRAM: 86.85%, IWRAM: 86.98%, ROM: 73.20%
+- Bramblewood exterior crash confirmed fixed — no crash on previously broken house tile
+- Starter selection system to be remade next session — FRLG-style table presentation replacing Emerald ball pop
+- Merged bramblewood branch into main and pushed to origin
 
 ## Session 16 Changes
 - Undertook major map surgery — stripped all vanilla Hoenn maps from map_groups.json, retaining only: Route109, BramblewoodTown, Route1000, LittlerootTown_BrendansHouse_1F/2F, LittlerootTown_MaysHouse_1F/2F, LittlerootTown_ProfessorBirchsLab, SSEnnaDeck
@@ -627,7 +661,7 @@ Post-battle: Steps aside. Leaves Ostenvale for the first time in years. Doesn't 
 |---|---|---|
 | pokeemerald Expansion | Base ROM — Fairy type, Physical/Special split, modern moves, better AI. Gen 9 Pokemon confirmed available. | Native (decomp) |
 | Porymap | Visual map and world editor. CONFIRMED WORKING. | Native Mac app (verified Session 10) |
-| Poryscript | NPC dialogue, cutscenes, events. Run with: `tools/poryscript/poryscript -i [input] -o [output] -cc tools/poryscript/command_config.json -fc tools/poryscript/font_config.json` | Native |
+| Poryscript | NPC dialogue, cutscenes, events. Binary at `./tools/poryscript`. Run with: `./tools/poryscript -i [input] -o [output] -cc command_config.json -fc font_config.json` (configs in project root). NOT run automatically by make. | Native |
 | HexManiacAdvance | Stats, moves, trainers, items | CrossOver / Wine |
 | mGBA | Emulator for playtesting | Native Mac app |
 | MultiPatch | Apply and distribute patch file | Native Mac app |
@@ -643,8 +677,10 @@ Post-battle: Steps aside. Leaves Ostenvale for the first time in years. Doesn't 
 - **LOCALIDs in raw .inc files**: Raw assembly .inc files do not go through the C preprocessor. #define constants must be added directly at the top of the .inc file if not otherwise available.
 - **VAR_ENNA_INTRO_STATE**: Defined at 0x40F7 in include/constants/vars.h. Memory address 0x020371EE. Chain: 21 (new game) → 22 (deck) → 23 (dock) → 24 (transition) → 25 (Bramblewood) → 26 (lab).
 - **map.inc `.ifdef` macro**: The `.ifdef \map_id` check in `asm/macros/map.inc` has been removed. C preprocessor `#define` stubs are expanded to numbers before the assembler runs, making the symbol name invisible to `.ifdef`. The macro now outputs bytes directly. Do not restore the `.ifdef` check.
-- **LOCALID stubs**: All deleted-map LOCALID constants are stubbed in `include/global.h`. When adding new maps or restoring vanilla content, ensure stubs for that map's LOCALIDs are removed and replaced with proper generated constants from the map's events.inc.
-- **Linker stub strategy**: Deleted map scripts leave dangling symbol references in vanilla C source (battle_tower.c, field_specials.c, etc.). These are stubbed as needed — text strings as `const u8 Symbol[] = {0xFF};`, scripts as minimal `end` stubs, functions as empty stubs returning 0. All stubs live in a dedicated `src/paradoxia_stubs.c` (to be created Session 17).
+- **LOCALID stubs**: All deleted-map LOCALID constants are stubbed in `include/constants/global.h` (NOT `include/global.h` — `event_scripts.s` only includes `constants/global.h` via cpp). When adding new maps or restoring vanilla content, ensure stubs for that map's LOCALIDs are removed and replaced with proper generated constants from the map's events.inc.
+- **Linker stub strategy**: Deleted map scripts leave dangling symbol references in vanilla C source (battle_tower.c, field_specials.c, etc.). All stubs live in `src/paradoxia_stubs.c` — text strings as `const u8 Symbol[] = {0xFF};`, scripts as `{0x02}` (end), movement scripts as `{0xFE}` (step_end). COMPLETE (Session 17).
+- **Layout regeneration**: Porymap 6.3 does not regenerate layout entries for maps it considers unmodified. If layout symbols go missing, use the Python script approach: read from `data/layouts/layouts.json` and append entries directly to `layouts.inc` and `layouts_table.inc`. Do not edit those files by hand otherwise — they are Porymap-managed.
+- **Poryscript path**: Binary is `./tools/poryscript` (single file at project root). Config files `command_config.json` and `font_config.json` are also at project root. Full command: `./tools/poryscript -i [input] -o [output] -cc command_config.json -fc font_config.json`. Poryscript is NOT run automatically by make — compile manually after editing any .pory file.
 
 ---
 
@@ -652,22 +688,23 @@ Post-battle: Steps aside. Leaves Ostenvale for the first time in years. Doesn't 
 
 | Priority | Task |
 |---|---|
-| 1 | **Resolve all ~350 linker undefined references** — create `src/paradoxia_stubs.c` with stub text strings (`const u8 Symbol[] = {0xFF};`), stub scripts (minimal `end`), and stub functions (return 0). Run `make 2>&1 | grep "undefined reference"` after each batch to confirm progress. |
-| 2 | Fix Bramblewood exterior crash — replace MB_SECRET_BASE metatile on house tile in Porymap; audit all blue water tiles for MB_WATER behaviour |
+| 1 | Fix `paradoxia_stubs.c` — strip duplicate stubs from botched heredoc, re-append Contest/TV/SecretBase/Frontier/Misc stubs correctly with proper struct types (`void*` for incomplete types, or include correct headers) |
+| 2 | Remake starter selection — FRLG-style table presentation; three Pokéballs on a table, player walks up to choose, Doc B assigns type-advantage to Bea without looking |
 | 3 | Wire Bea battle after starter selection in lab |
-| 4 | Swap Bramblewood tileset in Porymap — replace Littleroot tiles with appropriate starter town tileset |
-| 5 | Place Bramblewood buildings and NPCs in Porymap — lab, houses, child, old man, laundry woman |
-| 6 | Test Plugrass in-game — cry, sprite, stats, encounter |
-| 7 | Design routes between towns — trainers, wild Pokemon, Weezing placement before Gym 1 |
-| 8 | Design underground encounter tables for each tunnel arm (Gen 4/5, Gen 6/7, Gen 8/9) |
-| 9 | Design Vale's full team and battle script |
-| 10 | Design The Sandwich Person's full team |
-| 11 | Design Aldric's full team — balanced, deliberate, feels like a test not an obstacle |
-| 12 | Write pit stop town NPC dialogue for Passwick, Restmere, Cableville |
-| 13 | Confirm Pelipper Drizzle availability in pokeemerald Expansion for Doc & Doc's team |
-| 14 | Implement nameplate system for cutscene dialogue (deferred — low priority vs. content work) |
-| 15 | Score the game — all music decisions made against finished content, not in isolation |
-| 16 | Strip vanilla scripts referencing removed NPCs (Birch, Mom, Rival, Briney) — long-term cleanup to remove need for NPC stubs |
+| 4 | Place Pebble Creek NPCs and events — Pokémon Center nurse, Mart clerk, house residents, The Sandwich Person on the bridge |
+| 5 | Swap Bramblewood tileset in Porymap — replace Littleroot tiles with appropriate starter town tileset |
+| 6 | Place Bramblewood buildings and NPCs in Porymap — lab, houses, child, old man, laundry woman |
+| 7 | Test Plugrass in-game — cry, sprite, stats, encounter |
+| 8 | Place Route 1000 events and NPCs — trainers, wild grass encounters, signage |
+| 9 | Design underground encounter tables for each tunnel arm (Gen 4/5, Gen 6/7, Gen 8/9) |
+| 10 | Design Vale's full team and battle script |
+| 11 | Design The Sandwich Person's full team |
+| 12 | Design Aldric's full team — balanced, deliberate, feels like a test not an obstacle |
+| 13 | Write pit stop town NPC dialogue for Passwick, Restmere, Cableville |
+| 14 | Confirm Pelipper Drizzle availability in pokeemerald Expansion for Doc & Doc's team |
+| 15 | Implement nameplate system for cutscene dialogue (deferred — low priority vs. content work) |
+| 16 | Score the game — all music decisions made against finished content, not in isolation |
+| 17 | Strip vanilla C files referencing removed content — long-term cleanup to shrink stub count |
 
 **DONE**
 - Get a compilable clean build running in mGBA — COMPLETE (Session 11)
@@ -692,8 +729,14 @@ Post-battle: Steps aside. Leaves Ostenvale for the first time in years. Doesn't 
 - All compilation errors resolved — build reaches linker stage — COMPLETE (Session 16)
 - poryscript 3.6.0 installed and all .pory files compiled — COMPLETE (Session 16)
 - map.inc .ifdef macro replaced with direct byte output — COMPLETE (Session 16)
-- All deleted-map LOCALID/LAYOUT constants stubbed in global.h — COMPLETE (Session 16)
+- All deleted-map LOCALID/LAYOUT constants stubbed in constants/global.h — COMPLETE (Session 16/17)
+- All ~350 linker undefined references resolved — clean link achieved — COMPLETE (Session 17)
+- src/paradoxia_stubs.c created — COMPLETE (Session 17)
+- Bramblewood exterior crash fixed — COMPLETE (Session 17)
+
+- Pebble Creek map layout completed in Porymap — COMPLETE (Session 19)
+- Route109 → BramblewoodTown direct map connection working — COMPLETE (Session 18/19)
 
 ---
 
-*Pokemon: Paradoxia — Game Design Document. Updated end of Session 16 — April 2026.*
+*Pokemon: Paradoxia — Game Design Document. Updated end of Session 19 — April 2026.*

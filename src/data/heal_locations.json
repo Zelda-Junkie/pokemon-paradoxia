@@ -329,6 +329,18 @@
       "y": 12,
       "respawn_map": "MAP_SIX_ISLAND_POKEMON_CENTER_1F",
       "respawn_npc": "0"
+    },
+    {
+      "id": "HEAL_LOCATION_PEBBLE_CREEK",
+      "map": "MAP_PEBBLE_CREEK",
+      "x": 19,
+      "y": 10
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE999",
+      "map": "MAP_ROUTE999",
+      "x": 19,
+      "y": 19
     }
   ]
 }

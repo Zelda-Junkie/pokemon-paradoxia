@@ -359,7 +359,7 @@ static void ShowSSTidalWhileSailing(void)
 
     gSprites[spriteId].coordOffsetEnabled = FALSE;
 
-    if (VarGet(VAR_SS_TIDAL_STATE) == SS_TIDAL_DEPART_SLATEPORT)
+    if (VarGet(VAR_DAILY_BP) == SS_TIDAL_DEPART_SLATEPORT)
         StartSpriteAnim(&gSprites[spriteId], GetFaceDirectionAnimNum(DIR_EAST));
     else
         StartSpriteAnim(&gSprites[spriteId], GetFaceDirectionAnimNum(DIR_WEST));

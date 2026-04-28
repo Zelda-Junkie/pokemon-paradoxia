@@ -1,4 +1,6 @@
 #include "global.h"
+#include "contest.h"
+#include "battle_frontier.h"
 #include "script.h"
 
 // ============================================================
@@ -539,3 +541,253 @@ const u8 FarawayIsland_Interior_EventScript_HideMewWhenGrassCut[]   = {0x02};
 // ------------------------------------------------------------
 
 const u8 ContestHall_Movement_Heart[] = {0xFE};
+
+
+
+// Contest stubs
+extern struct ContestResources *gContestResources;
+struct ContestResources *gContestResources = NULL;
+extern const struct ContestEffect gContestEffects[];
+const struct ContestEffect gContestEffects[] = {};
+extern const struct ContestCategory gContestCategoryInfo[];
+const struct ContestCategory gContestCategoryInfo[] = {};
+extern u8 gContestMonPartyIndex;
+u8 gContestMonPartyIndex = 0;
+extern u16 gSpecialVar_ContestRank;
+u16 gSpecialVar_ContestRank = 0;
+void LoadContestBgAfterMoveAnim(void) {}
+void StartContest(void) {}
+void ShowContestResults(void) {}
+void ContestLinkTransfer(void) {}
+void ShowContestPainting(void) {}
+void SetContestWinnerForPainting(void) {}
+u8 GetContestEntryEligibility(struct Pokemon *pkmn) { return 0; }
+void GetContestWinnerId(void) {}
+void GetContestPlayerId(void) {}
+void GetNpcContestantLocalId(void) {}
+void BufferContestWinnerTrainerName(void) {}
+void BufferContestWinnerMonName(void) {}
+void BufferContestTrainerAndMonNames(void) {}
+void GetContestMonConditionRanking(void) {}
+void SetContestTrainerGfxIds(void) {}
+void TryEnterContestMon(void) {}
+void GetContestantNamesAtRank(void) {}
+void SetLinkContestPlayerGfx(void) {}
+void GetContestMonCondition(void) {}
+void HasMonWonThisContestBefore(void) {}
+void GiveMonContestRibbon(void) {}
+void IsContestDebugActive(void) {}
+void GiveMonArtistRibbon(void) {}
+void ShouldReadyContestArtist(void) {}
+void SaveMuseumContestPainting(void) {}
+void DoesContestCategoryHaveMuseumPainting(void) {}
+void CountPlayerMuseumPaintings(void) {}
+void GetContestMultiplayerId(void) {}
+void GenerateContestRand(void) {}
+void ShowContestEntryMonPic(void) {}
+void HideContestEntryMonPic(void) {}
+void SetContestCategoryStringVarForInterview(void) {}
+void ClearContestWinnerPicsInContestHall(void) {}
+void ResetContestLinkResults(void) {}
+void ResetLinkContestBoolean(void) {}
+void PutLilycoveContestLadyShowOnTheAir(void) {}
+void LinkContestWaitForConnection(void) {}
+void LinkContestTryShowWirelessIndicator(void) {}
+void LinkContestTryHideWirelessIndicator(void) {}
+void IsWirelessContest(void) {}
+void IsContestWithRSPlayer(void) {}
+void ClearLinkContestFlags(void) {}
+void LoadLinkContestPlayerPalettes(void) {}
+enum ContestCategories gSpecialVar_ContestCategory;
+// Learn move
+void LearnMove(void) {}
+void GetLearnMoveResumeAfterSummaryScreenState(void) {}
+void GetLearnMoveStartState(void) {}
+
+// Box mon exclusion
+bool8 IsBoxMonExcluded(void) { return FALSE; }
+bool8 CanBoxMonBeSelected(void) { return TRUE; }
+void ChooseBoxMon(void) {}
+
+// Condition graph
+void OpenConditionGraphMenu(void) {}
+void CreateConditionGraphMenuLoopedTask(void) {}
+bool8 IsConditionGraphMenuLoopedTaskActive(void) { return FALSE; }
+void FreeConditionGraphMenuSubstruct2(void) {}
+
+// Mon markings
+void GetMonMarkingsData(void) {}
+
+// Save data screen
+void CB2_InitClearSaveDataScreen(void) {}
+
+// Pokeblock condition
+const u8 gConditionGraphData_Pal[] = {0xFF};
+const u8 gConditionText_Pal[] = {0xFF};
+
+// TV stubs
+extern u8 *gTVStringVarPtrs[];
+u8 *gTVStringVarPtrs[4] = {NULL};
+void UpdateTVShowsPerDay(void) {}
+void UpdateTVScreensOnMap(void) {}
+void ClearTVShowData(void) {}
+void TryPutPokemonTodayOnAir(void) {}
+void TryPutBreakingNewsOnAir(void) {}
+void TryPutBattleSeminarOnAir(void) {}
+void PutBattleUpdateOnTheAir(void) {}
+void Put3CheersForPokeblocksOnTheAir(void) {}
+void TryPutTrendWatcherOnAir(void) {}
+void TryPutSecretBaseVisitOnAir(void) {}
+void TryPutSafariFanClubOnAir(void) {}
+void TryPutFrontierTVShowOnAir(void) {}
+void ShouldAirFrontierTVShow(void) {}
+void TryPutSpotTheCutiesOnAir(void) {}
+void TryPutSmartShopperOnAir(void) {}
+void TryPutFindThatGamerOnAir(void) {}
+void AlertTVThatPlayerPlayedRoulette(void) {}
+void AlertTVThatPlayerPlayedSlotMachine(void) {}
+void TryPutTodaysRivalTrainerOnAir(void) {}
+void TryPutNameRaterShowOnTheAir(void) {}
+void TryPutTreasureInvestigatorsOnAir(void) {}
+void TryPutLotteryWinnerReportOnAir(void) {}
+void TryPutTrainerFanClubOnAir(void) {}
+void PutFanClubSpecialOnTheAir(void) {}
+void IncrementDailyPlantedBerries(void) {}
+void IncrementDailyPickedBerries(void) {}
+void IncrementDailyWildBattles(void) {}
+void IncrementDailyBerryBlender(void) {}
+void IncrementDailyBattlePoints(void) {}
+void IncrementDailySlotsUses(void) {}
+void IncrementDailyRouletteUses(void) {}
+void RecordFishingAttemptForTV(void) {}
+void IsPokeNewsActive(void) {}
+void DoTVShow(void) {}
+void DoPokeNews(void) {}
+void GetRandomActiveShowIdx(void) {}
+void GetSelectedTVShow(void) {}
+void InterviewBefore(void) {}
+void InterviewAfter(void) {}
+void IsLeadMonNicknamedOrNotEnglish(void) {}
+void GetNextActiveShowIfMassOutbreak(void) {}
+void IsTVShowAlreadyInQueue(void) {}
+void CheckForPlayersHouseNews(void) {}
+void GetMomOrDadStringForTVMessage(void) {}
+void ResetTVShowState(void) {}
+void TurnOffTVScreen(void) {}
+void TurnOnTVScreen(void) {}
+void DeactivateAllNormalTVShows(void) {}
+void SanitizeTVShowsForRuby(void) {}
+void SanitizeTVShowLocationsForRuby(void) {}
+void ReceiveTvShowsData(void) {}
+void ReceivePokeNewsData(void) {}
+void DoTVShowInSearchOfTrainers(void) {}
+void IsGabbyAndTyShowOnTheAir(void) {}
+void GabbyAndTyGetLastQuote(void) {}
+void GabbyAndTyGetLastBattleTrivia(void) {}
+void GetGabbyAndTyLocalIds(void) {}
+void GabbyAndTyGetBattleNum(void) {}
+void GabbyAndTyAfterInterview(void) {}
+void GabbyAndTyBeforeInterview(void) {}
+void ResetGabbyAndTy(void) {}
+
+// Secret Base stubs
+void SetOccupiedSecretBaseEntranceMetatiles(void) {}
+void InitSecretBaseAppearance(void) {}
+void ToggleSecretBaseEntranceMetatile(void) {}
+void CheckPlayerHasSecretBase(void) {}
+void SetCurSecretBaseIdFromPosition(void) {}
+void TrySetCurSecretBaseIndex(void) {}
+void CurMapIsSecretBase(void) {}
+void HideSecretBaseDecorationSprites(void) {}
+void SecretBasePerStepCallback(void) {}
+void SecretBaseMapPopupEnabled(void) {}
+void CheckLeftFriendsSecretBase(void) {}
+void TrySetCurSecretBase(void) {}
+void WarpIntoSecretBase(void) {}
+void SetPlayerSecretBase(void) {}
+void EnterSecretBase(void) {}
+void ClearAndLeaveSecretBase(void) {}
+void MoveOutOfSecretBase(void) {}
+void IsCurSecretBaseOwnedByAnotherPlayer(void) {}
+void GetCurSecretBaseRegistrationValidity(void) {}
+void ToggleCurSecretBaseRegistry(void) {}
+void ShowSecretBaseDecorationMenu(void) {}
+void ShowSecretBaseRegistryMenu(void) {}
+void PrepSecretBaseBattleFlags(void) {}
+void GetSecretBaseOwnerAndState(void) {}
+void InitSecretBaseDecorationSprites(void) {}
+void GetSecretBaseTypeInFrontOfPlayer(void) {}
+void SetSecretBaseOwnerGfxId(void) {}
+void EnterNewlyCreatedSecretBase(void) {}
+void SetBattledOwnerFromResult(void) {}
+void ClearSecretBases(void) {}
+void SetPlayerSecretBaseParty(void) {}
+void ClearJapaneseSecretBases(void) {}
+void ReceiveSecretBasesData(void) {}
+void GetSecretBaseTrainerLoseText(void) {}
+void GetSecretBaseMapName(void) {}
+void CopyCurSecretBaseOwnerName_StrVar1(void) {}
+void CheckInteractedWithFriendsSandOrnament(void) {}
+void DeclinedSecretBaseBattle(void) {}
+void DrewSecretBaseBattle(void) {}
+void WonSecretBaseBattle(void) {}
+void LostSecretBaseBattle(void) {}
+void CheckInteractedWithFriendsDollDecor(void) {}
+void CheckInteractedWithFriendsCushionDecor(void) {}
+void CheckInteractedWithFriendsFurnitureBottom(void) {}
+void CheckInteractedWithFriendsFurnitureMiddle(void) {}
+void CheckInteractedWithFriendsFurnitureTop(void) {}
+void CheckInteractedWithFriendsPosterDecor(void) {}
+void MoveOutOfSecretBaseFromOutside(void) {}
+void InitSecretBaseVars(void) {}
+
+// Frontier stubs
+const struct BattleFrontierTrainer *gFacilityTrainers = NULL;
+const struct TrainerMon *gFacilityTrainerMons = NULL;
+u16 gFrontierTempParty[MAX_FRONTIER_PARTY_SIZE] = {};
+void CreateFacilityMon(const struct TrainerMon *fmon, u16 level, u8 fixedIV, u32 otID, u32 flags, struct Pokemon *dst) {}
+void FillFrontierTrainerParty(u8 monsCount) {}
+void FillFrontierTrainersParties(u8 monsCount) {}
+void DoBattleFactorySwapScreen(void) {}
+void DoBattleFactorySelectScreen(void) {}
+void HideBattleTowerReporter(void) {}
+void GetAiScriptsInBattleFactory(void) {}
+void InBattleFactory(void) {}
+void FacilityTrainerBattle(void) {}
+void CallBattlePalaceFunction(void) {}
+void CallBattleFactoryFunction(void) {}
+
+// Misc stubs
+void CountDigits(void) {}
+void ConvertIntToDecimalString(void) {}
+void GetPlayerIDAsU32(void) {}
+void GetRibbonCount(void) {}
+bool8 IsSpeciesNotUnown(u16 species) { return TRUE; }
+void GetLocationMusic(void) {}
+void TryFadeOutOldMapMusic(void) {}
+void ObjectEventIsFarawayIslandMew(void) {}
+void ShouldMewShakeGrass(void) {}
+void GetMewMoveDirection(void) {}
+void UpdateFarawayIslandStepCounter(void) {}
+void IsMewPlayingHideAndSeek(void) {}
+void SetMewAboveGrass(void) {}
+void DestroyMewEmergingGrassSprite(void) {}
+void ShouldDoBrailleRegicePuzzle(void) {}
+void ShouldDoBrailleDigEffect(void) {}
+void DoBrailleDigEffect(void) {}
+void ShouldDoBrailleRegisteelEffect(void) {}
+void SetUpPuzzleEffectRegisteel(void) {}
+void ShouldDoBrailleRegirockEffect(void) {}
+void SetUpPuzzleEffectRegirock(void) {}
+void ShouldDoBrailleRegirockEffectOld(void) {}
+void FldEff_UsePuzzleEffect(void) {}
+void CheckRelicanthWailord(void) {}
+void DoSealedChamberShakingEffect_Long(void) {}
+void DoSealedChamberShakingEffect_Short(void) {}
+void SetPokemonAnglerSpecies(void) {}
+void BufferMonNickname(void) {}
+void IsMonOTIDNotPlayers(void) {}
+void ChangePokemonNickname(void) {}
+bool8 ShouldHideFanClubInterviewer(void) { return TRUE; }
+
+// Contest stubs

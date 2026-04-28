@@ -15,7 +15,7 @@ Route109_EventScript_DockScene::
     clearflag FLAG_HIDE_DOCK_BEA
     applymovement LOCALID_DOC_B, Route109_Movement_FaceLeft
     applymovement LOCALID_DOC_A, Route109_Movement_FaceLeft
-	applymovement LOCALID_BEA, Route109_Movement_FaceRight
+	applymovement LOCALID_BEA_DOCK, Route109_Movement_FaceRight
 	applymovement OBJ_EVENT_ID_PLAYER, Route109_Movement_FaceRight
 	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceRight
     waitmovement 0

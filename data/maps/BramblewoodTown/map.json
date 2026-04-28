@@ -3,10 +3,10 @@
   "name": "BramblewoodTown",
   "layout": "LAYOUT_BRAMBLEWOOD_TOWN",
   "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
+  "map_type": "MAP_TYPE_TOWN",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": false,
@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_ROUTE1000",
-      "offset": -30,
+      "offset": -26,
       "direction": "left"
     },
     {
@@ -31,7 +31,7 @@
       "y": 4,
       "elevation": 0,
       "dest_map": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
-      "dest_warp_id": "0"
+      "dest_warp_id": "1"
     },
     {
       "x": 15,

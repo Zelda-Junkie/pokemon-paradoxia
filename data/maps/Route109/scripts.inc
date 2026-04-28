@@ -1,7 +1,3 @@
-#define LOCALID_DOC_B 23
-#define LOCALID_DOC_A 24
-#define LOCALID_BEA 25
-#define LOCALID_CAPTAIN_DOCK 26
 # 1 "data/maps/Route109/scripts.pory"
 
 # 2 "data/maps/Route109/scripts.pory"
@@ -37,7 +33,7 @@ Route109_EventScript_DockScene::
 # 17 "data/maps/Route109/scripts.pory"
     applymovement LOCALID_DOC_A, Route109_Movement_FaceLeft
 # 18 "data/maps/Route109/scripts.pory"
-	applymovement LOCALID_BEA, Route109_Movement_FaceRight
+	applymovement LOCALID_BEA_DOCK, Route109_Movement_FaceRight
 # 19 "data/maps/Route109/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, Route109_Movement_FaceRight
 # 20 "data/maps/Route109/scripts.pory"

@@ -1,0 +1,40 @@
+{
+  "id": "MAP_ROUTE999",
+  "name": "Route999",
+  "layout": "LAYOUT_ROUTE999",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_ROUTE_102",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_PEBBLE_CREEK",
+      "offset": 52,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_COPPERGATE_CITY",
+      "offset": 2,
+      "direction": "up"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 24,
+      "y": 0,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route999_MapScripts"
+    }
+  ]
+}

@@ -7,7 +7,12 @@
   "gMapGroup_TownsAndRoutes": [
     "Route109",
     "BramblewoodTown",
-    "Route1000"
+    "Route1000",
+    "BramblewoodDock",
+    "BramblewoodTo109",
+    "PebbleCreek",
+    "Route999",
+    "CoppergateCity"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

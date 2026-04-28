@@ -25,7 +25,6 @@
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "config/save.h"
-
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
 

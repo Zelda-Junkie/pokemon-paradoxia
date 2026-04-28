@@ -860,3 +860,13 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/BramblewoodTown/scripts.inc"
 
 	.include "data/maps/Route1000/scripts.inc"
+
+	.include "data/maps/BramblewoodTo109/scripts.inc"
+
+	.include "data/maps/BramblewoodDock/scripts.inc"
+
+	.include "data/maps/PebbleCreek/scripts.inc"
+
+	.include "data/maps/CoppergateCity/scripts.inc"
+
+	.include "data/maps/Route999/scripts.inc"
