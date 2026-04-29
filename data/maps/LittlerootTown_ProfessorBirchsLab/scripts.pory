@@ -1,4 +1,8 @@
 raw `
+#define SP_NAME_DOC_B 3
+#define SP_NAME_DOC_A 4
+#define SP_NAME_BEA   5
+
 LittlerootTown_ProfessorBirchsLab_MapScripts::
     map_script MAP_SCRIPT_ON_FRAME_TABLE, BirchsLab_OnFrame
     .byte 0
@@ -15,10 +19,14 @@ LittlerootTown_ProfessorBirchsLab_EventScript_LabScene::
     applymovement LOCALID_DOC_A_LAB, LittlerootTown_ProfessorBirchsLab_Movement_DocAFacePlayer
     applymovement LOCALID_BEA_LAB, LittlerootTown_ProfessorBirchsLab_Movement_BeaFaceUp
     waitmovement 0
+    setspeaker SP_NAME_DOC_B
     msgbox LittlerootTown_ProfessorBirchsLab_Text_DocBWelcome, MSGBOX_NPC
     msgbox LittlerootTown_ProfessorBirchsLab_Text_DocBChoose, MSGBOX_NPC
+    setspeaker SP_NAME_BEA
     msgbox LittlerootTown_ProfessorBirchsLab_Text_BeaLikesIt, MSGBOX_NPC
+    setspeaker SP_NAME_DOC_A
     msgbox LittlerootTown_ProfessorBirchsLab_Text_DocAGoodLuck, MSGBOX_NPC
+    setspeaker SP_NAME_BEA
     msgbox LittlerootTown_ProfessorBirchsLab_Text_BeaChallenge, MSGBOX_NPC
     releaseall
     end
@@ -60,22 +68,22 @@ LittlerootTown_ProfessorBirchsLab_Movement_BeaFaceUp:
     step_end
 
 LittlerootTown_ProfessorBirchsLab_Text_DocBWelcome:
-    .string "Doc B: Welcome!$"
+    .string "Welcome!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_DocBChoose:
-    .string "Doc B: Now then! Choose your\npartner!$"
+    .string "Now then! Choose your\npartner!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_DocBGivesBea:
-    .string "Doc B: And for you- Bea!\nPerfect.$"
+    .string "And for you- Bea!\nPerfect.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BeaLikesIt:
-    .string "Bea: Oh. I really like its face.$"
+    .string "Oh. I really like its face.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_DocAGoodLuck:
-    .string "Doc A: Good luck.$"
+    .string "Good luck.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BeaChallenge:
-    .string "Bea: Yours did really well in\nthere!\pMine seemed very confident\nabout something.\lI'm not sure what.\pI heard there's a good sandwich\nplace up ahead. See you there!$"
+    .string "Yours did really well in\nthere!\pMine seemed very confident\nabout something.\lI'm not sure what.\pI heard there's a good sandwich\nplace up ahead. See you there!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_FoundPokemon:
     .string "You found a Pokémon!$"
@@ -87,7 +95,7 @@ LittlerootTown_ProfessorBirchsLab_Text_AlreadyHasPokemon:
     .string "You already have a Pokémon.$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Aide::
-    .string "Aide: The doctors can be\n contradicting sometimes\l That's why the're a pair of docs$"
+    .string "The doctors can be\n contradicting sometimes\l That's why the're a pair of docs$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Birch::
     end

@@ -19,25 +19,38 @@ Route109_EventScript_DockScene::
 	applymovement OBJ_EVENT_ID_PLAYER, Route109_Movement_FaceRight
 	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceRight
     waitmovement 0
+    setspeaker SP_NAME_DOC_B
     msgbox Route109_Text_DocBTheretheyare, MSGBOX_NPC
+    setspeaker SP_NAME_DOC_A
     msgbox Route109_Text_DocATheboat, MSGBOX_NPC
+    setspeaker SP_NAME_DOC_B
     msgbox Route109_Text_DocBAndyet, MSGBOX_NPC
+    setspeaker SP_NAME_DOC_A
     msgbox Route109_Text_DocAWrongname, MSGBOX_NPC
+    setspeaker SP_NAME_DOC_B
     msgbox Route109_Text_DocBConfident, MSGBOX_NPC
 	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceDown
+    setspeaker SP_NAME_CAPTAIN
     msgbox Route109_Text_CaptainWhere, MSGBOX_NPC
 	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceRight
+    setspeaker SP_NAME_DOC_B
     msgbox Route109_Text_DocBParadoxia, MSGBOX_NPC
 	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceDown
+    setspeaker SP_NAME_CAPTAIN
     msgbox Route109_Text_CaptainCharts, MSGBOX_NPC
 	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceRight
+    setspeaker SP_NAME_DOC_B
     msgbox Route109_Text_DocBNo, MSGBOX_NPC
 	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceDown
+    setspeaker SP_NAME_CAPTAIN
     msgbox Route109_Text_CaptainAnycharts, MSGBOX_NPC
 	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceRight
+    setspeaker SP_NAME_DOC_B
     msgbox Route109_Text_DocBProbablynot, MSGBOX_NPC
 	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceDown
+    setspeaker SP_NAME_CAPTAIN
     msgbox Route109_Text_CaptainMinute, MSGBOX_NPC
+    setspeaker SP_NAME_DOC_A
 	msgbox Route109_Text_DocALab, MSGBOX_NPC
 	fadescreen FADE_TO_BLACK
 	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 6, 8
@@ -58,49 +71,49 @@ Route109_Movement_FaceDown:
     step_end
 
 Route109_Text_DocBTheretheyare:
-    .string "Doc B: There they are! Right on time!$"
+    .string "There they are! Right on time!$"
 
 Route109_Text_DocATheboat:
-    .string "Doc A: The boat was going to Alola.$"
+    .string "The boat was going to Alola.$"
 
 Route109_Text_DocBAndyet:
-    .string "Doc B: And yet!$"
+    .string "And yet!$"
 
 Route109_Text_DocASorry:
-    .string "Doc A: I'm so sorry about... this.\nAnd the sign.$"
+    .string "I'm so sorry about... this.\nAnd the sign.$"
 
 Route109_Text_DocBSigncorrect:
-    .string "Doc B: The sign is correct.$"
+    .string "The sign is correct.$"
 
 Route109_Text_DocAWrongname:
-    .string "Doc A: You said your name was {PLAYER}?$"
+    .string "You said your name was {PLAYER}?$"
 
 Route109_Text_DocBConfident:
-    .string "Doc B: I'm confident they said Alex.$"
+    .string "I'm confident they said Alex.$"
 
 Route109_Text_CaptainWhere:
-    .string "Captain: Excuse me, I hate to interrupt.\nWhere is this?$"
+    .string "Excuse me, I hate to interrupt.\nWhere is this?$"
 
 Route109_Text_DocBParadoxia:
-    .string "Doc B: Paradoxia!$"
+    .string "Paradoxia!$"
 
 Route109_Text_CaptainCharts:
-    .string "Captain: That's not on my charts.$"
+    .string "That's not on my charts.$"
 
 Route109_Text_DocBNo:
-    .string "Doc B: No.$"
+    .string "No.$"
 
 Route109_Text_CaptainAnycharts:
-    .string "Captain: ...Is it on any charts?$"
+    .string "...Is it on any charts?$"
 
 Route109_Text_DocBProbablynot:
-    .string "Doc B: Probably not!$"
+    .string "Probably not!$"
 
 Route109_Text_CaptainMinute:
-    .string "Captain: I'm going to need a minute.$"
+    .string "I'm going to need a minute.$"
 
 Route109_Text_DocALab:
-    .string "Doc A: Everybody! Come to the lab so I\ncan show you something interesting!$"
+    .string "Everybody! Come to the lab so I\ncan show you something interesting!$"
 
 Route109_EventScript_TrainerTipsSign::
     end

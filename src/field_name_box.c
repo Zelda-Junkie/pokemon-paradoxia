@@ -26,6 +26,27 @@ static const u32 sNameBoxPokenavGfx[] = INCBIN_U32("graphics/pokenav/name_box.4b
 static void WindowFunc_DrawNamebox(u32, u32, u32, u32, u32, u32, u32);
 static void WindowFunc_ClearNamebox(u8, u8, u8, u8, u8, u8);
 
+void SetSpeaker(struct ScriptContext *ctx)
+{
+    u32 arg = ScriptReadWord(ctx);
+    const u8 *speaker = NULL;
+
+    if (arg < SP_NAME_COUNT)
+        speaker = gSpeakerNamesTable[arg];
+    else if (arg >= ROM_START && arg < ROM_END)
+        speaker = (const u8 *)arg;
+// Namebox will show "NULL" if speaker is NULL, and "BIG" if arg is out of bounds. This is intentional to make it obvious when something is wrong with the speaker data.
+    if (speaker == NULL) {
+        static const u8 fallback[] = _("NULL");
+        speaker = fallback;
+    } else if (arg >= SP_NAME_COUNT) {
+        static const u8 fallback2[] = _("BIG");
+        speaker = fallback2;
+    }
+
+    gSpeakerName = speaker;
+}
+
 void TrySpawnNamebox(u32 tileNum)
 {
     u8 *strbuf = AllocZeroed(32 * sizeof(u8));
@@ -175,22 +196,10 @@ static void WindowFunc_ClearNamebox(u8 bg, u8 L, u8 T, u8 w, u8 h, u8 p)
     FillBgTilemapBufferRect(bg, 0, L - 1, T, w + 2, h, 0); // palette doesn't matter
 }
 
-void SetSpeaker(struct ScriptContext *ctx)
-{
-    u32 arg = ScriptReadWord(ctx);
-    const u8 *speaker = NULL;
-
-    if (arg < SP_NAME_COUNT)
-        speaker = gSpeakerNamesTable[arg];
-    else if (arg >= ROM_START && arg < ROM_END)
-        speaker = (const u8 *)arg;
-
-    gSpeakerName = speaker;
-}
-
 // useful for other context e.g. match call
 void TrySpawnAndShowNamebox(const u8 *speaker, u32 tileNum)
 {
+
     gSpeakerName = speaker;
     TrySpawnNamebox(tileNum);
     if (sNameboxWindowId != WINDOW_NONE)
