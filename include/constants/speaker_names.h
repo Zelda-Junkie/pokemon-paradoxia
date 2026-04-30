@@ -9,6 +9,7 @@ enum SpeakerNames {
     SP_NAME_DOC_A,
     SP_NAME_BEA,
     SP_NAME_CAPTAIN,
+    SP_NAME_PC,
     SP_NAME_COUNT
 };
 
@@ -19,5 +20,6 @@ enum SpeakerNames {
 #define SP_NAME_DOC_A    4
 #define SP_NAME_BEA      5
 #define SP_NAME_CAPTAIN  6
+#define SP_NAME_PC       7
 
 #endif // GUARD_CONSTANTS_SPEAKER_NAMES_H

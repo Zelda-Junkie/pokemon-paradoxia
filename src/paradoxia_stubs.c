@@ -600,30 +600,16 @@ void ClearLinkContestFlags(void) {}
 void LoadLinkContestPlayerPalettes(void) {}
 enum ContestCategories gSpecialVar_ContestCategory;
 // Learn move
-void LearnMove(void) {}
-void GetLearnMoveResumeAfterSummaryScreenState(void) {}
-void GetLearnMoveStartState(void) {}
 
 // Box mon exclusion
-bool8 IsBoxMonExcluded(void) { return FALSE; }
-bool8 CanBoxMonBeSelected(void) { return TRUE; }
-void ChooseBoxMon(void) {}
 
 // Condition graph
-void OpenConditionGraphMenu(void) {}
-void CreateConditionGraphMenuLoopedTask(void) {}
-bool8 IsConditionGraphMenuLoopedTaskActive(void) { return FALSE; }
-void FreeConditionGraphMenuSubstruct2(void) {}
 
 // Mon markings
-void GetMonMarkingsData(void) {}
 
 // Save data screen
-void CB2_InitClearSaveDataScreen(void) {}
 
 // Pokeblock condition
-const u8 gConditionGraphData_Pal[] = {0xFF};
-const u8 gConditionText_Pal[] = {0xFF};
 
 // TV stubs
 extern u8 *gTVStringVarPtrs[];

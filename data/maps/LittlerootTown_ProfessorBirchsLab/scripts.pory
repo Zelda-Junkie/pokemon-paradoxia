@@ -121,75 +121,109 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Book::
 LittlerootTown_ProfessorBirchsLab_EventScript_Bookshelf::
     end
 
+LittlerootTown_ProfessorBirchsLab_EventScript_PokeballSprigatito::
+    lockall
+    goto_if_set FLAG_STARTER_1, LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyTaken
+    compare VAR_STARTER_MON, 0xFF
+    goto_if_ne LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyChosen
+    special ShowPickSprigatito
+    msgbox LittlerootTown_ProfessorBirchsLab_Text_WantSprigatito, MSGBOX_YESNO
+    compare VAR_RESULT, NO
+    goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_PokeballDeclined
+    setflag FLAG_STARTER_1
+    setvar VAR_STARTER_MON, 0
+    givemon SPECIES_SPRIGATITO, 5, ITEM_NONE
+    special HidePickPokemon
+    releaseall
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_PokeballFuecoco::
+    lockall
+    goto_if_set FLAG_STARTER_2, LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyTaken
+    compare VAR_STARTER_MON, 0xFF
+    goto_if_ne LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyChosen
+    special ShowPickFuecoco
+    msgbox LittlerootTown_ProfessorBirchsLab_Text_WantFuecoco, MSGBOX_YESNO
+    compare VAR_RESULT, NO
+    goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_PokeballDeclined
+    setflag FLAG_STARTER_2
+    setvar VAR_STARTER_MON, 1
+    givemon SPECIES_FUECOCO, 5, ITEM_NONE
+    special HidePickPokemon
+    releaseall
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_PokeballQuaxly::
+    lockall
+    goto_if_set FLAG_STARTER_3, LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyTaken
+    compare VAR_STARTER_MON, 0xFF
+    goto_if_ne LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyChosen
+    special ShowPickQuaxly
+    msgbox LittlerootTown_ProfessorBirchsLab_Text_WantQuaxly, MSGBOX_YESNO
+    compare VAR_RESULT, NO
+    goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_PokeballDeclined
+    setflag FLAG_STARTER_3
+    setvar VAR_STARTER_MON, 2
+    givemon SPECIES_QUAXLY, 5, ITEM_NONE
+    special HidePickPokemon
+    releaseall
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyTaken::
+    msgbox LittlerootTown_ProfessorBirchsLab_Text_PokeballEmpty, MSGBOX_DEFAULT
+    releaseall
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyChosen::
+    msgbox LittlerootTown_ProfessorBirchsLab_Text_AlreadyHasPokemon, MSGBOX_DEFAULT
+    releaseall
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_PokeballDeclined::
+    special HidePickPokemon
+    msgbox LittlerootTown_ProfessorBirchsLab_Text_PokeballDeclined, MSGBOX_DEFAULT
+    releaseall
+    end
+
 LittlerootTown_ProfessorBirchsLab_EventScript_PC::
+    lockall
+    setspeaker SP_NAME_PC
+    goto_if_set FLAG_WOBBUFFET_LAB, LittlerootTown_ProfessorBirchsLab_EventScript_WOBBUFFETAlreadyTaken
+    msgbox LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETWant, MSGBOX_YESNO
+    compare VAR_RESULT, NO
+    goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_WOBBUFFETDeclined
+    msgbox LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETSure, MSGBOX_YESNO
+    compare VAR_RESULT, NO
+    goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_WOBBUFFETDeclined
+    msgbox LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETCrime, MSGBOX_YESNO
+    compare VAR_RESULT, NO
+    goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_WOBBUFFETDeclined
+    msgbox LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETRocket, MSGBOX_DEFAULT
+    givemon SPECIES_WOBBUFFET, 5, ITEM_NONE
+    givemon SPECIES_WOBBUFFET, 5, ITEM_NONE
+    givemon SPECIES_WOBBUFFET, 5, ITEM_NONE
+    givemon SPECIES_WOBBUFFET, 5, ITEM_NONE
+    givemon SPECIES_WOBBUFFET, 5, ITEM_NONE
+    givemon SPECIES_WOBBUFFET, 5, ITEM_NONE
+    msgbox LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETFine, MSGBOX_DEFAULT
+    setflag FLAG_WOBBUFFET_LAB
+    releaseall
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_WOBBUFFETAlreadyTaken::
+    setspeaker SP_NAME_PC
+    msgbox LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETAlreadyTaken, MSGBOX_DEFAULT
+    releaseall
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_WOBBUFFETDeclined::
+    setspeaker SP_NAME_PC  
+    msgbox LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETDeclined, MSGBOX_DEFAULT
+    releaseall
     end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall::
     end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_PokeballSprigatito::
-	lockall
-	goto_if_set FLAG_UNUSED_0x021, LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyTaken
-	compare VAR_STARTER_MON, 0xFF
-	goto_if_ne LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyChosen
-    special ShowPickSprigatito
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_WantSprigatito, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_PokeballDeclined
-	setflag FLAG_UNUSED_0x021
-	setvar VAR_STARTER_MON, 0
-	givemon SPECIES_SPRIGATITO, 5, ITEM_NONE
-    special HidePickPokemon
-	releaseall
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_PokeballFuecoco::
-	lockall
-	goto_if_set FLAG_UNUSED_0x020, LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyTaken
-	compare VAR_STARTER_MON, 0xFF
-	goto_if_ne LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyChosen
-    special ShowPickFuecoco
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_WantFuecoco, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_PokeballDeclined
-	setflag FLAG_UNUSED_0x020
-	setvar VAR_STARTER_MON, 1
-	givemon SPECIES_FUECOCO, 5, ITEM_NONE
-    special HidePickPokemon
-	releaseall
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_PokeballQuaxly::
-	lockall
-	goto_if_set FLAG_UNUSED_0x022, LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyTaken
-	compare VAR_STARTER_MON, 0xFF
-	goto_if_ne LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyChosen
-    special ShowPickQuaxly
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_WantQuaxly, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_PokeballDeclined
-	setflag FLAG_UNUSED_0x022
-	setvar VAR_STARTER_MON, 2
-	givemon SPECIES_QUAXLY, 5, ITEM_NONE
-    special HidePickPokemon
-	releaseall
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyTaken::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_PokeballEmpty, MSGBOX_DEFAULT
-	releaseall
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyChosen::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_AlreadyHasPokemon, MSGBOX_DEFAULT
-	releaseall
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_PokeballDeclined::
-    special HidePickPokemon
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_PokeballDeclined, MSGBOX_DEFAULT
-	releaseall
-	end
 
 LittlerootTown_ProfessorBirchsLab_Text_WantSprigatito::
     .string "Would you like Sprigatito?$"
@@ -202,6 +236,27 @@ LittlerootTown_ProfessorBirchsLab_Text_WantQuaxly::
 
 LittlerootTown_ProfessorBirchsLab_Text_PokeballDeclined::
     .string "You left the Poke Ball in place.$"
+
+LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETAlreadyTaken::
+    .string "You already took the Wobbuffets,\n you filthy, dirty little brat.$"
+
+LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETWant::
+    .string "There are 6 Wobbuffets in the\n professor's P.C. Will you take them?$"
+
+LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETSure::
+    .string "Are you sure? These aren't yours.$"
+
+LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETCrime::
+    .string "This is considered a federal crime.\n You do understand the consequences,\l right?$"
+
+LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETRocket::
+    .string "Really? You're willing to stoop to that?\nTo commit a crime worthy of Team Rocket?$"
+
+LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETFine::
+    .string "Fine.\pYou received 6 Wobbuffets,\n you evil being.$"
+
+LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETDeclined::
+    .string "You left the Wobbuffets in place.\n You feel your spirits lift!$"
 
 EventScript_RegisterProfBirch::
     end

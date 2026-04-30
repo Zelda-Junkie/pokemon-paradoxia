@@ -643,3 +643,4 @@ gSpecials::
 	def_special ShowPickFuecoco
 	def_special ShowPickQuaxly
 	def_special HidePickPokemon
+	def_special ShowWobbufet

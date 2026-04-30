@@ -3,6 +3,7 @@
 #include "overworld.h"
 #include "naming_screen.h"
 #include "script_menu.h"
+#include "constants/species.h"
 
 void Special_ParadoxiaDoNamingScreen(void)
 {
@@ -27,4 +28,9 @@ void ShowPickQuaxly(void)
 void HidePickPokemon(void)
 {
     ScriptMenu_HidePokemonPic();
+}
+
+void ShowWobbufet(void)
+{
+    ScriptMenu_ShowPokemonPic(SPECIES_WOBBUFFET, 5, 2);
 }

@@ -51,10 +51,10 @@
 
 #else
 
-#define FLAG_UNUSED_0x020    0x20 // Unused Flag
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
-#define FLAG_UNUSED_0x022    0x22 // Unused Flag
-#define FLAG_UNUSED_0x023    0x23 // Unused Flag
+#define FLAG_STARTER_2       0x20 // Starter 2
+#define FLAG_STARTER_1       0x21 // Starter 1
+#define FLAG_STARTER_3       0x22 // Starter 3
+#define FLAG_WOBBUFFET_LAB   0x23 // This keeps your dirty, nasty, filthy, disgusting, gross, unclean hands of of unsuspecting Wobbuffet in the lab after you check the PC and take it out once.
 #define FLAG_UNUSED_0x024    0x24 // Unused Flag
 #define FLAG_UNUSED_0x025    0x25 // Unused Flag
 #define FLAG_UNUSED_0x026    0x26 // Unused Flag
