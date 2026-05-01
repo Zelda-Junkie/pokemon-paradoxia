@@ -35,7 +35,7 @@ Route109_EventScript_DockScene::
 # 18 "data/maps/Route109/scripts.pory"
 	applymovement LOCALID_BEA_DOCK, Route109_Movement_FaceRight
 # 19 "data/maps/Route109/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Route109_Movement_FaceRight
+	applymovement OBJ_EVENT_ID_PLAYER, Route109_Movement_FaceLeft
 # 20 "data/maps/Route109/scripts.pory"
 	applymovement LOCALID_CAPTAIN_DOCK, Route109_Movement_FaceRight
 # 21 "data/maps/Route109/scripts.pory"

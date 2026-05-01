@@ -18,40 +18,39 @@ LittlerootTown_ProfessorBirchsLab_EventScript_LabScene::
     applymovement LOCALID_DOC_B_LAB, LittlerootTown_ProfessorBirchsLab_Movement_DocBFacePlayer
     applymovement LOCALID_DOC_A_LAB, LittlerootTown_ProfessorBirchsLab_Movement_DocAFacePlayer
     applymovement LOCALID_BEA_LAB, LittlerootTown_ProfessorBirchsLab_Movement_BeaFaceUp
+    applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_ProfessorBirchsLab_Movement_FaceDown
     waitmovement 0
     setspeaker SP_NAME_DOC_B
     msgbox LittlerootTown_ProfessorBirchsLab_Text_DocBWelcome, MSGBOX_NPC
+    setspeaker SP_NAME_DOC_B
     msgbox LittlerootTown_ProfessorBirchsLab_Text_DocBChoose, MSGBOX_NPC
-    setspeaker SP_NAME_BEA
-    msgbox LittlerootTown_ProfessorBirchsLab_Text_BeaLikesIt, MSGBOX_NPC
-    setspeaker SP_NAME_DOC_A
-    msgbox LittlerootTown_ProfessorBirchsLab_Text_DocAGoodLuck, MSGBOX_NPC
-    setspeaker SP_NAME_BEA
-    msgbox LittlerootTown_ProfessorBirchsLab_Text_BeaChallenge, MSGBOX_NPC
     releaseall
     end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_GiveSprigatito::
-    givemon SPECIES_SPRIGATITO, 5, ITEM_NONE
+    givemon SPECIES_TATSUGIRI, 5, ITEM_NONE
     return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_GiveFuecoco::
-    givemon SPECIES_FUECOCO, 5, ITEM_NONE
+    givemon SPECIES_DONDOZO, 5, ITEM_NONE
     return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_GiveQuaxly::
-    givemon SPECIES_QUAXLY, 5, ITEM_NONE
+    givemon SPECIES_TATSUGIRI, 5, ITEM_NONE
     return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_BeaGetsFuecoco::
+    setspeaker SP_NAME_DOC_B
     msgbox LittlerootTown_ProfessorBirchsLab_Text_DocBGivesBea, MSGBOX_NPC
     return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_BeaGetsQuaxly::
+    setspeaker SP_NAME_DOC_B
     msgbox LittlerootTown_ProfessorBirchsLab_Text_DocBGivesBea, MSGBOX_NPC
     return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_BeaGetsSprigatito::
+    setspeaker SP_NAME_DOC_B
     msgbox LittlerootTown_ProfessorBirchsLab_Text_DocBGivesBea, MSGBOX_NPC
     return
 
@@ -71,7 +70,7 @@ LittlerootTown_ProfessorBirchsLab_Text_DocBWelcome:
     .string "Welcome!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_DocBChoose:
-    .string "Now then! Choose your\npartner!$"
+    .string "Now then! Choose your\npartner Thomas!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_DocBGivesBea:
     .string "And for you- Bea!\nPerfect.$"
@@ -95,8 +94,11 @@ LittlerootTown_ProfessorBirchsLab_Text_AlreadyHasPokemon:
     .string "You already have a Pokémon.$"
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Aide::
-    .string "The doctors can be\n contradicting sometimes\l That's why the're a pair of docs$"
-
+    lockall
+    setspeaker SP_NAME_AIDE_LAB
+    msgbox LittlerootTown_ProfessorBirchsLab_Text_Aide, MSGBOX_NPC
+    releaseall
+    end
 LittlerootTown_ProfessorBirchsLab_EventScript_Birch::
     end
 
@@ -127,12 +129,13 @@ LittlerootTown_ProfessorBirchsLab_EventScript_PokeballSprigatito::
     compare VAR_STARTER_MON, 0xFF
     goto_if_ne LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyChosen
     special ShowPickSprigatito
+    setspeaker SP_NAME_AIDE_LAB
     msgbox LittlerootTown_ProfessorBirchsLab_Text_WantSprigatito, MSGBOX_YESNO
     compare VAR_RESULT, NO
     goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_PokeballDeclined
     setflag FLAG_STARTER_1
     setvar VAR_STARTER_MON, 0
-    givemon SPECIES_SPRIGATITO, 5, ITEM_NONE
+    givemon SPECIES_TATSUGIRI, 5, ITEM_NONE
     special HidePickPokemon
     releaseall
     end
@@ -143,12 +146,13 @@ LittlerootTown_ProfessorBirchsLab_EventScript_PokeballFuecoco::
     compare VAR_STARTER_MON, 0xFF
     goto_if_ne LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyChosen
     special ShowPickFuecoco
+    setspeaker SP_NAME_AIDE_LAB
     msgbox LittlerootTown_ProfessorBirchsLab_Text_WantFuecoco, MSGBOX_YESNO
     compare VAR_RESULT, NO
     goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_PokeballDeclined
     setflag FLAG_STARTER_2
     setvar VAR_STARTER_MON, 1
-    givemon SPECIES_FUECOCO, 5, ITEM_NONE
+    givemon SPECIES_DONDOZO, 5, ITEM_NONE
     special HidePickPokemon
     releaseall
     end
@@ -159,12 +163,13 @@ LittlerootTown_ProfessorBirchsLab_EventScript_PokeballQuaxly::
     compare VAR_STARTER_MON, 0xFF
     goto_if_ne LittlerootTown_ProfessorBirchsLab_EventScript_PokeballAlreadyChosen
     special ShowPickQuaxly
+    setspeaker SP_NAME_AIDE_LAB
     msgbox LittlerootTown_ProfessorBirchsLab_Text_WantQuaxly, MSGBOX_YESNO
     compare VAR_RESULT, NO
     goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_PokeballDeclined
     setflag FLAG_STARTER_3
     setvar VAR_STARTER_MON, 2
-    givemon SPECIES_QUAXLY, 5, ITEM_NONE
+    givemon SPECIES_TATSUGIRI, 5, ITEM_NONE
     special HidePickPokemon
     releaseall
     end
@@ -192,12 +197,15 @@ LittlerootTown_ProfessorBirchsLab_EventScript_PC::
     msgbox LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETWant, MSGBOX_YESNO
     compare VAR_RESULT, NO
     goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_WOBBUFFETDeclined
+    setspeaker SP_NAME_PC
     msgbox LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETSure, MSGBOX_YESNO
     compare VAR_RESULT, NO
     goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_WOBBUFFETDeclined
+    setspeaker SP_NAME_PC
     msgbox LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETCrime, MSGBOX_YESNO
     compare VAR_RESULT, NO
     goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_WOBBUFFETDeclined
+    setspeaker SP_NAME_PC
     msgbox LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETRocket, MSGBOX_DEFAULT
     givemon SPECIES_WOBBUFFET, 5, ITEM_NONE
     givemon SPECIES_WOBBUFFET, 5, ITEM_NONE
@@ -205,6 +213,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_PC::
     givemon SPECIES_WOBBUFFET, 5, ITEM_NONE
     givemon SPECIES_WOBBUFFET, 5, ITEM_NONE
     givemon SPECIES_WOBBUFFET, 5, ITEM_NONE
+    setspeaker SP_NAME_PC
     msgbox LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETFine, MSGBOX_DEFAULT
     setflag FLAG_WOBBUFFET_LAB
     releaseall
@@ -222,17 +231,35 @@ LittlerootTown_ProfessorBirchsLab_EventScript_WOBBUFFETDeclined::
     releaseall
     end
 
+LittlerootTown_ProfessorBirchsLab_EventScript_Table_Left::
+    lockall
+    setspeaker SP_NAME_AIDE_LAB
+    msgbox LittlerootTown_ProfessorBirchsLab_Text_Table, MSGBOX_DEFAULT
+    applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_ProfessorBirchsLab_Movement_Right
+    waitmovement OBJ_EVENT_ID_PLAYER
+    releaseall
+    end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Table_Right::
+    lockall
+    setspeaker SP_NAME_AIDE_LAB
+    msgbox LittlerootTown_ProfessorBirchsLab_Text_Table, MSGBOX_DEFAULT
+    applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_ProfessorBirchsLab_Movement_Left
+    waitmovement OBJ_EVENT_ID_PLAYER
+    releaseall
+    end
+
 LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall::
     end
 
 LittlerootTown_ProfessorBirchsLab_Text_WantSprigatito::
-    .string "Would you like Sprigatito?$"
+    .string "Would you like Tatsugiri?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_WantFuecoco::
-    .string "Would you like Fuecoco?$"
+    .string "Would you like Dondozo?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_WantQuaxly::
-    .string "Would you like Quaxly?$"
+    .string "Would you like Tatsugiri?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_PokeballDeclined::
     .string "You left the Poke Ball in place.$"
@@ -260,4 +287,21 @@ LittlerootTown_ProfessorBirchsLab_Text_WOBBUFFETDeclined::
 
 EventScript_RegisterProfBirch::
     end
+LittlerootTown_ProfessorBirchsLab_Text_Aide::
+    .string "The doctors can be\n contradicting sometimes\lThat's why the're the pair of docs!$"
+
+ LittlerootTown_ProfessorBirchsLab_Text_Table::
+    .string "Hey, {PLAYER}! Get off the table!$"
+
+LittlerootTown_ProfessorBirchsLab_Movement_Right:
+    walk_right
+    step_end
+
+LittlerootTown_ProfessorBirchsLab_Movement_Left:
+    walk_left
+    step_end
+
+LittlerootTown_ProfessorBirchsLab_Movement_FaceDown:
+    face_down
+    step_end
 `

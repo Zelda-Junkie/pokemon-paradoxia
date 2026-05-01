@@ -12,27 +12,38 @@ SSEnnaDeck_EventScript_Intro::
     setvar VAR_ENNA_INTRO_STATE, 22
     applymovement LOCALID_ENNA_BEA, SSEnnaDeck_Movement_BeaFacePlayer
     applymovement LOCALID_ENNA_CAPTAIN, SSEnnaDeck_Movement_LookAround
+    applymovement OBJ_EVENT_ID_PLAYER, SSEnnaDeck_Movement_FaceLeft
     waitmovement 0
+    setspeaker SP_NAME_BEA
     msgbox SSEnnaDeck_Text_BeaName, MSGBOX_NPC
     special Special_ParadoxiaDoNamingScreen
     waitstate
+    setspeaker SP_NAME_BEA
     msgbox SSEnnaDeck_Text_BeaAlola, MSGBOX_NPC
+    setspeaker SP_NAME_BEA
     msgbox SSEnnaDeck_Text_BeaAlola2, MSGBOX_NPC
     applymovement LOCALID_ENNA_CAPTAIN, SSEnnaDeck_Movement_CaptainApproach
     waitmovement 0
     applymovement LOCALID_ENNA_BEA, SSEnnaDeck_Movement_FaceUp
     applymovement LOCALID_ENNA_CAPTAIN, SSEnnaDeck_Movement_FaceDown
     waitmovement 0
+    setspeaker SP_NAME_CAPTAIN
     msgbox SSEnnaDeck_Text_CaptainHm, MSGBOX_NPC
+    setspeaker SP_NAME_BEA
     msgbox SSEnnaDeck_Text_BeaGoodHm, MSGBOX_NPC
+    setspeaker SP_NAME_CAPTAIN
     msgbox SSEnnaDeck_Text_CaptainIsland, MSGBOX_NPC
     applymovement LOCALID_ENNA_BEA, SSEnnaDeck_Movement_LookAround
+    setspeaker SP_NAME_BEA
     msgbox SSEnnaDeck_Text_BeaOurIsland, MSGBOX_NPC
+    setspeaker SP_NAME_CAPTAIN
     msgbox SSEnnaDeck_Text_CaptainNo, MSGBOX_NPC
+    setspeaker SP_NAME_BEA
     msgbox SSEnnaDeck_Text_BeaWhyCare, MSGBOX_NPC
+    setspeaker SP_NAME_CAPTAIN
     msgbox SSEnnaDeck_Text_CaptainNotSupposed, MSGBOX_NPC
     fadescreen FADE_TO_BLACK
-    warp MAP_ROUTE109, 17, 36
+    warp MAP_ROUTE109, 17, 38
     waitstate
     releaseall
     end
@@ -73,34 +84,34 @@ SSEnnaDeck_Movement_CaptainApproach:
     step_end
 
 SSEnnaDeck_Text_BeaName:
-    .string "Bea: I just love the sea breeze!\n It's so peaceful, and a nice change\l from the hustle and bustle of\p Lumiose City!\nThe best place to feel it is Alola!\nThat's why I'm on this boat headed\pthere. What's your name, anyways?$"
+    .string "I just love the sea breeze!\n It's so peaceful, and a nice change\l from the hustle and bustle of\p Lumiose City!\nThe best place to feel it is Alola!\nThat's why I'm on this boat headed\pthere. What's your name, anyways?$"
 
 SSEnnaDeck_Text_BeaAlola:
-    .string "Bea: Nice to meet you, {PLAYER}!\n My name is Bea.\lI'm convinced Alola is the best region.\pThe sandy beaches, gorgeous sunsets,\land the warm climate! I can't wait!$"
+    .string "Nice to meet you, {PLAYER}!\n My name is Bea.\lI'm convinced Alola is the best region.\pThe sandy beaches, gorgeous sunsets,\land the warm climate! I can't wait!$"
 
 SSEnnaDeck_Text_BeaAlola2:
-    .string "Bea: How long will it take to get there?$"
+    .string "How long will it take to get there?$"
 
 SSEnnaDeck_Text_CaptainHm:
-    .string "Captain: We should get there in\nabout two days\l...Hm.$"
+    .string "We should get there in\nabout two days\l...Hm.$"
 
 SSEnnaDeck_Text_BeaGoodHm:
-    .string "Bea: Was that a good hm or a bad hm?$"
+    .string "Was that a good hm or a bad hm?$"
 
 SSEnnaDeck_Text_CaptainIsland:
-    .string "Captain: It's an 'there is an\nisland here' hm.$"
+    .string "It's an 'there is an\nisland here' hm.$"
 
 SSEnnaDeck_Text_BeaOurIsland:
-    .string "Bea: Is it Melemele island?$"
+    .string "Is it Melemele island?$"
 
 SSEnnaDeck_Text_CaptainNo:
-    .string "Captain: No.$"
+    .string "No.$"
 
 SSEnnaDeck_Text_BeaWhyCare:
-    .string "Bea: Then why do we care?\nWe passed plenty of islands on the way.$"
+    .string "Then why do we care?\nWe passed plenty of islands on the way.$"
 
 SSEnnaDeck_Text_CaptainNotSupposed:
-    .string "Captain: There isn't supposed to be\nan island here. Either way, we need to\lcheck it out.\pWe're running low on fuel. We need to\nstock up on supplies.$"
+    .string "There isn't supposed to be\nan island here. Either way, we need to\lcheck it out.\pWe're running low on fuel. We need to\nstock up on supplies.$"
 
 SSEnnaDeck_Text_CaptainFuel:
     .string "Captain: We're running low on fuel.\nWe need to stock up on supplies.$"

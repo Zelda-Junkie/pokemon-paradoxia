@@ -12,17 +12,17 @@ void Special_ParadoxiaDoNamingScreen(void)
 
 void ShowPickSprigatito(void)
 {
-    ScriptMenu_ShowPokemonPic(SPECIES_SPRIGATITO, 5, 2);
+    ScriptMenu_ShowPokemonPic(SPECIES_TATSUGIRI, 5, 2);
 }
 
 void ShowPickFuecoco(void)
 {
-    ScriptMenu_ShowPokemonPic(SPECIES_FUECOCO, 5, 2);
+    ScriptMenu_ShowPokemonPic(SPECIES_DONDOZO, 5, 2);
 }
 
 void ShowPickQuaxly(void)
 {
-    ScriptMenu_ShowPokemonPic(SPECIES_QUAXLY, 5, 2);
+    ScriptMenu_ShowPokemonPic(SPECIES_TATSUGIRI, 5, 2);
 }
 
 void HidePickPokemon(void)

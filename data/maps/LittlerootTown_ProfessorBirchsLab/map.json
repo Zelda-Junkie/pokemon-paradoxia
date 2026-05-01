@@ -80,7 +80,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_GiveSprigatito",
+      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_PokeballFuecoco",
       "flag": "FLAG_STARTER_2"
     },
     {
@@ -93,7 +93,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_GiveFuecoco",
+      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_PokeballSprigatito",
       "flag": "FLAG_STARTER_1"
     },
     {
@@ -106,7 +106,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_GiveQuaxly",
+      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_PokeballQuaxly",
       "flag": "FLAG_STARTER_3"
     }
   ],
@@ -122,7 +122,7 @@
       "x": 7,
       "y": 12,
       "elevation": 0,
-      "dest_map": "MAP_LITTLEROOT_TOWN",
+      "dest_map": "MAP_BRAMBLEWOOD_TOWN",
       "dest_warp_id": "0"
     },
     {
@@ -133,11 +133,30 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Table_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "LittlerootTown_ProfessorBirchsLab_EventScript_Table_Left"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
-      "x": 10,
+      "x": 11,
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -145,7 +164,7 @@
     },
     {
       "type": "sign",
-      "x": 11,
+      "x": 12,
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
