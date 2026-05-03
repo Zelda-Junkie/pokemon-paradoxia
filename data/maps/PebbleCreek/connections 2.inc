@@ -4,7 +4,7 @@
 
 PebbleCreek_MapConnectionsList:
 	connection right, 8, MAP_ROUTE1000
-	connection left, -52, MAP_ROUTE999
+	connection left, -16, MAP_ROUTE999
 
 PebbleCreek_MapConnections:
 	.4byte 2

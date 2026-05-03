@@ -9,7 +9,7 @@ BramblewoodDock:
 	.4byte NULL
 	.2byte MUS_DUMMY
 	.2byte LAYOUT_BRAMBLEWOOD_DOCK
-	.byte MAPSEC_ANCIENT_TOMB
+	.byte MAPSEC_ABANDONED_SHIP
 	.byte FALSE
 	.byte WEATHER_NONE
 	.byte MAP_TYPE_NONE

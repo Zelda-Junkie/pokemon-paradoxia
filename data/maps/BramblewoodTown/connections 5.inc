@@ -3,7 +3,7 @@
 @
 
 BramblewoodTown_MapConnectionsList:
-	connection left, -26, MAP_ROUTE1000
+	connection left, -28, MAP_ROUTE1000
 	connection down, -12, MAP_ROUTE109
 
 BramblewoodTown_MapConnections:

@@ -3,8 +3,8 @@
 @
 
 Route999_MapConnectionsList:
-	connection right, 52, MAP_PEBBLE_CREEK
 	connection up, 2, MAP_COPPERGATE_CITY
+	connection right, 16, MAP_PEBBLE_CREEK
 
 Route999_MapConnections:
 	.4byte 2

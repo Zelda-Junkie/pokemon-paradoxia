@@ -1,0 +1,214 @@
+raw `
+#define LOCALID_WILLOW 1
+
+BramblewoodTown_MapScripts::
+    .byte 0
+
+Willow_Pre_Gym_Script_1::
+    lockall
+    checkflag FLAG_DEFEATED_RUSTBORO_GYM
+    goto_if 1, Willow_Gym_AlreadyBeaten
+    applymovement LOCALID_WILLOW, Willow_Movement_1
+    waitmovement 0
+    setspeaker SP_NAME_WILLOW
+    msgbox Willow_Text_NotBeaten, MSGBOX_DEFAULT
+    applymovement OBJ_EVENT_ID_PLAYER, Player_Up
+    waitmovement 0
+    releaseall
+    end
+
+Willow_Pre_Gym_Script_2::
+    lockall
+    checkflag FLAG_DEFEATED_RUSTBORO_GYM
+    goto_if 1, Willow_Gym_AlreadyBeaten
+    applymovement LOCALID_WILLOW, Willow_Movement_2
+    waitmovement 0
+    setspeaker SP_NAME_WILLOW
+    msgbox Willow_Text_NotBeaten, MSGBOX_DEFAULT
+    applymovement OBJ_EVENT_ID_PLAYER, Player_Up
+    waitmovement 0
+    applymovement LOCALID_WILLOW, Willow_Return_2
+    waitmovement 0
+    releaseall
+    end
+
+Willow_Pre_Gym_Script_3::
+    lockall
+    checkflag FLAG_DEFEATED_RUSTBORO_GYM
+    goto_if 1, Willow_Gym_AlreadyBeaten
+    applymovement LOCALID_WILLOW, Willow_Movement_3
+    waitmovement 0
+    setspeaker SP_NAME_WILLOW
+    msgbox Willow_Text_NotBeaten, MSGBOX_DEFAULT
+    applymovement OBJ_EVENT_ID_PLAYER, Player_Up
+    waitmovement 0
+    applymovement LOCALID_WILLOW, Willow_Return_3
+    waitmovement 0
+    releaseall
+    end
+
+Willow_Pre_Gym_Script_4::
+    lockall
+    checkflag FLAG_DEFEATED_RUSTBORO_GYM
+    goto_if 1, Willow_Gym_AlreadyBeaten
+    applymovement LOCALID_WILLOW, Willow_Movement_4
+    waitmovement 0
+    setspeaker SP_NAME_WILLOW
+    msgbox Willow_Text_NotBeaten, MSGBOX_DEFAULT
+    applymovement OBJ_EVENT_ID_PLAYER, Player_Up
+    waitmovement 0
+    applymovement LOCALID_WILLOW, Willow_Return_4
+    waitmovement 0
+    releaseall
+    end
+
+Willow_Pre_Gym_Script_5::
+    lockall
+    checkflag FLAG_DEFEATED_RUSTBORO_GYM
+    goto_if 1, Willow_Gym_AlreadyBeaten
+    applymovement LOCALID_WILLOW, Willow_Movement_5
+    waitmovement 0
+    setspeaker SP_NAME_WILLOW
+    msgbox Willow_Text_NotBeaten, MSGBOX_DEFAULT
+    applymovement OBJ_EVENT_ID_PLAYER, Player_Up
+    waitmovement 0
+    applymovement LOCALID_WILLOW, Willow_Return_5
+    waitmovement 0
+    releaseall
+    end
+
+Willow_Pre_Gym_Script_6::
+    lockall
+    checkflag FLAG_DEFEATED_RUSTBORO_GYM
+    goto_if 1, Willow_Gym_AlreadyBeaten
+    applymovement LOCALID_WILLOW, Willow_Movement_6
+    waitmovement 0
+    setspeaker SP_NAME_WILLOW
+    msgbox Willow_Text_NotBeaten, MSGBOX_DEFAULT
+    applymovement OBJ_EVENT_ID_PLAYER, Player_Up
+    waitmovement 0
+    applymovement LOCALID_WILLOW, Willow_Return_6
+    waitmovement 0
+    releaseall
+    end
+
+Willow_Pre_Gym_Script_7::
+    lockall
+    checkflag FLAG_DEFEATED_RUSTBORO_GYM
+    goto_if 1, Willow_Gym_AlreadyBeaten
+    applymovement LOCALID_WILLOW, Willow_Movement_7
+    waitmovement 0
+    setspeaker SP_NAME_WILLOW
+    msgbox Willow_Text_NotBeaten, MSGBOX_DEFAULT
+    applymovement OBJ_EVENT_ID_PLAYER, Player_Up
+    waitmovement 0
+    applymovement LOCALID_WILLOW, Willow_Return_7
+    waitmovement 0
+    releaseall
+    end
+
+Willow_Gym_AlreadyBeaten::
+    releaseall
+    end
+
+Willow_Text_NotBeaten:
+    .string "Hey punk! Watch it!\nThis area is for ELITE trainers only!\lCome back with a badge next time!$"
+
+Willow_Movement_1:
+    face_player
+    step_end
+    
+Willow_Movement_2:
+    walk_right
+    face_player
+    step_end
+
+Willow_Movement_3:
+    walk_right
+    walk_right
+    face_player
+    step_end
+
+Willow_Movement_4:
+    walk_right
+    walk_right
+    walk_right
+    face_player
+    step_end
+
+Willow_Movement_5:
+    walk_right
+    walk_right
+    walk_right
+    walk_right
+    face_player
+    step_end
+
+Willow_Movement_6:
+    walk_right
+    walk_right
+    walk_right
+    walk_right
+    walk_right
+    face_player
+    step_end
+
+Willow_Movement_7:
+    walk_right
+    walk_right
+    walk_right
+    walk_right
+    walk_right
+    walk_right
+    face_player
+    step_end
+
+Willow_Return_2:
+    walk_left
+    face_player
+    step_end
+
+Willow_Return_3:
+    walk_left
+    walk_left
+    face_player
+    step_end
+
+Willow_Return_4:
+    walk_left
+    walk_left
+    walk_left
+    face_player
+    step_end
+
+Willow_Return_5:
+    walk_left
+    walk_left
+    walk_left
+    walk_left
+    face_player
+    step_end
+
+Willow_Return_6:
+    walk_left
+    walk_left
+    walk_left
+    walk_left
+    walk_left
+    face_player
+    step_end
+
+Willow_Return_7:
+    walk_left
+    walk_left
+    walk_left
+    walk_left
+    walk_left
+    walk_left
+    face_player
+    step_end
+
+Player_Up:
+    walk_up
+    step_end
+`

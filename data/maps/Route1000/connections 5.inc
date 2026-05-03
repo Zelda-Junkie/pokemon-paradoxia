@@ -3,10 +3,9 @@
 @
 
 Route1000_MapConnectionsList:
-	connection right, 26, MAP_BRAMBLEWOOD_TOWN
-	connection left, -8, MAP_PEBBLE_CREEK
+	connection right, 28, MAP_BRAMBLEWOOD_TOWN
 
 Route1000_MapConnections:
-	.4byte 2
+	.4byte 1
 	.4byte Route1000_MapConnectionsList
 
