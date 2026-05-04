@@ -13,6 +13,8 @@ enum SpeakerNames {
     SP_NAME_AIDE_LAB,
     SP_NAME_DEXY,
     SP_NAME_WILLOW,
+    SP_NAME_MS_D,
+    SP_NAME_CLARISE,
     SP_NAME_COUNT
 };
 
@@ -28,4 +30,6 @@ enum SpeakerNames {
 #define SP_NAME_AIDE_LAB     8
 #define SP_NAME_DEXY         9
 #define SP_NAME_WILLOW       10
+#define SP_NAME_MS_D         11
+#define SP_NAME_CLARISE      12
 #endif // GUARD_CONSTANTS_SPEAKER_NAMES_H

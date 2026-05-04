@@ -581,7 +581,7 @@ void GiveMonArtistRibbon(void) {}
 void ShouldReadyContestArtist(void) {}
 void SaveMuseumContestPainting(void) {}
 void DoesContestCategoryHaveMuseumPainting(void) {}
-void CountPlayerMuseumPaintings(void) {}
+u8 CountPlayerMuseumPaintings(void) { return 0; }
 void GetContestMultiplayerId(void) {}
 void GenerateContestRand(void) {}
 void ShowContestEntryMonPic(void) {}
@@ -605,8 +605,6 @@ enum ContestCategories gSpecialVar_ContestCategory;
 
 // Condition graph
 
-// Mon markings
-
 // Save data screen
 
 // Pokeblock condition
@@ -621,12 +619,12 @@ void TryPutPokemonTodayOnAir(void) {}
 void TryPutBreakingNewsOnAir(void) {}
 void TryPutBattleSeminarOnAir(void) {}
 void PutBattleUpdateOnTheAir(void) {}
-void Put3CheersForPokeblocksOnTheAir(void) {}
+bool8 Put3CheersForPokeblocksOnTheAir(const u8 *partnersName, enum Flavor flavor, u8 color, u8 sheen, u8 language) { return FALSE; }
 void TryPutTrendWatcherOnAir(void) {}
 void TryPutSecretBaseVisitOnAir(void) {}
 void TryPutSafariFanClubOnAir(void) {}
 void TryPutFrontierTVShowOnAir(void) {}
-void ShouldAirFrontierTVShow(void) {}
+bool8 ShouldAirFrontierTVShow(void) { return FALSE; }
 void TryPutSpotTheCutiesOnAir(void) {}
 void TryPutSmartShopperOnAir(void) {}
 void TryPutFindThatGamerOnAir(void) {}
@@ -646,7 +644,7 @@ void IncrementDailyBattlePoints(void) {}
 void IncrementDailySlotsUses(void) {}
 void IncrementDailyRouletteUses(void) {}
 void RecordFishingAttemptForTV(void) {}
-void IsPokeNewsActive(void) {}
+bool8 IsPokeNewsActive(u8 newsKind) { return FALSE; }
 void DoTVShow(void) {}
 void DoPokeNews(void) {}
 void GetRandomActiveShowIdx(void) {}
@@ -656,7 +654,7 @@ void InterviewAfter(void) {}
 void IsLeadMonNicknamedOrNotEnglish(void) {}
 void GetNextActiveShowIfMassOutbreak(void) {}
 void IsTVShowAlreadyInQueue(void) {}
-void CheckForPlayersHouseNews(void) {}
+u8 CheckForPlayersHouseNews(void) { return 0; }
 void GetMomOrDadStringForTVMessage(void) {}
 void ResetTVShowState(void) {}
 void TurnOffTVScreen(void) {}
@@ -667,7 +665,7 @@ void SanitizeTVShowLocationsForRuby(void) {}
 void ReceiveTvShowsData(void) {}
 void ReceivePokeNewsData(void) {}
 void DoTVShowInSearchOfTrainers(void) {}
-void IsGabbyAndTyShowOnTheAir(void) {}
+bool8 IsGabbyAndTyShowOnTheAir(void) { return FALSE; }
 void GabbyAndTyGetLastQuote(void) {}
 void GabbyAndTyGetLastBattleTrivia(void) {}
 void GetGabbyAndTyLocalIds(void) {}
@@ -683,12 +681,12 @@ void ToggleSecretBaseEntranceMetatile(void) {}
 void CheckPlayerHasSecretBase(void) {}
 void SetCurSecretBaseIdFromPosition(void) {}
 void TrySetCurSecretBaseIndex(void) {}
-void CurMapIsSecretBase(void) {}
+bool8 CurMapIsSecretBase(void) { return FALSE; }
 void HideSecretBaseDecorationSprites(void) {}
 void SecretBasePerStepCallback(void) {}
-void SecretBaseMapPopupEnabled(void) {}
+bool8 SecretBaseMapPopupEnabled(void) { return FALSE; }
 void CheckLeftFriendsSecretBase(void) {}
-void TrySetCurSecretBase(void) {}
+bool8 TrySetCurSecretBase(void) { return FALSE; }
 void WarpIntoSecretBase(void) {}
 void SetPlayerSecretBase(void) {}
 void EnterSecretBase(void) {}
@@ -710,8 +708,8 @@ void ClearSecretBases(void) {}
 void SetPlayerSecretBaseParty(void) {}
 void ClearJapaneseSecretBases(void) {}
 void ReceiveSecretBasesData(void) {}
-void GetSecretBaseTrainerLoseText(void) {}
-void GetSecretBaseMapName(void) {}
+const u8 *GetSecretBaseTrainerLoseText(void) { return NULL; }
+u8 *GetSecretBaseMapName(u8 *dest) { return dest; }
 void CopyCurSecretBaseOwnerName_StrVar1(void) {}
 void CheckInteractedWithFriendsSandOrnament(void) {}
 void DeclinedSecretBaseBattle(void) {}
@@ -744,26 +742,33 @@ void CallBattlePalaceFunction(void) {}
 void CallBattleFactoryFunction(void) {}
 
 // Misc stubs
-void CountDigits(void) {}
+u32 CountDigits(u32 amount) {
+    u32 digits = 1;
+    while (amount >= 10) {
+        amount /= 10;
+        digits++;
+    }
+    return digits;
+}
 void ConvertIntToDecimalString(void) {}
-void GetPlayerIDAsU32(void) {}
-void GetRibbonCount(void) {}
+u32 GetPlayerIDAsU32(void) { return 0; }
+u8 GetRibbonCount(struct Pokemon *pokemon) { return 0; }
 bool8 IsSpeciesNotUnown(u16 species) { return TRUE; }
-void GetLocationMusic(void) {}
+u16 GetLocationMusic(struct WarpData *warp) { return 0; }
 void TryFadeOutOldMapMusic(void) {}
-void ObjectEventIsFarawayIslandMew(void) {}
-void ShouldMewShakeGrass(void) {}
-void GetMewMoveDirection(void) {}
+bool8 ObjectEventIsFarawayIslandMew(struct ObjectEvent *objectEvent) { return FALSE; }
+bool8 ShouldMewShakeGrass(struct ObjectEvent *objectEvent) { return FALSE; }
+u32 GetMewMoveDirection(void) { return 0; }
 void UpdateFarawayIslandStepCounter(void) {}
-void IsMewPlayingHideAndSeek(void) {}
+bool8 IsMewPlayingHideAndSeek(void) { return FALSE; }
 void SetMewAboveGrass(void) {}
 void DestroyMewEmergingGrassSprite(void) {}
-void ShouldDoBrailleRegicePuzzle(void) {}
-void ShouldDoBrailleDigEffect(void) {}
+bool8 ShouldDoBrailleRegicePuzzle(void) { return FALSE; }
+bool8 ShouldDoBrailleDigEffect(void) { return FALSE; }
 void DoBrailleDigEffect(void) {}
-void ShouldDoBrailleRegisteelEffect(void) {}
+bool8 ShouldDoBrailleRegisteelEffect(void) { return FALSE; }
 void SetUpPuzzleEffectRegisteel(void) {}
-void ShouldDoBrailleRegirockEffect(void) {}
+bool8 ShouldDoBrailleRegirockEffect(void) { return FALSE; }
 void SetUpPuzzleEffectRegirock(void) {}
 void ShouldDoBrailleRegirockEffectOld(void) {}
 void FldEff_UsePuzzleEffect(void) {}
@@ -775,5 +780,3 @@ void BufferMonNickname(void) {}
 void IsMonOTIDNotPlayers(void) {}
 void ChangePokemonNickname(void) {}
 bool8 ShouldHideFanClubInterviewer(void) { return TRUE; }
-
-// Contest stubs

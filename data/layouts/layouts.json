@@ -9413,6 +9413,26 @@
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/CoppergateCity/border.bin",
       "blockdata_filepath": "data/layouts/CoppergateCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALLERGY_LADY_HOUSE",
+      "name": "Allergy_Lady_House_Layout",
+      "width": 10,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Allergy_Lady_House/border.bin",
+      "blockdata_filepath": "data/layouts/Allergy_Lady_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALLERGY_LADY_UPSTAIRS",
+      "name": "Allergy_Lady_Upstairs_Layout",
+      "width": 10,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Allergy_Lady_Upstairs/border.bin",
+      "blockdata_filepath": "data/layouts/Allergy_Lady_Upstairs/map.bin"
     }
   ]
 }

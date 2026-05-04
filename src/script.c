@@ -604,6 +604,8 @@ static bool32 RunScriptImmediatelyUntilEffect_InternalLoop(struct ScriptContext 
 
 void Script_GotoBreak_Internal(void)
 {
+    if (gScriptEffectContext == NULL)
+        return;
     __builtin_longjmp(gScriptEffectContext->breakTo, 1);
 }
 
@@ -640,6 +642,8 @@ bool32 Script_HasNoEffect(const u8 *ptr)
 
 void Script_RequestEffects_Internal(u32 effects)
 {
+    if (gScriptEffectContext == NULL)
+        return;
     if (gScriptEffectContext->breakOn & effects)
         __builtin_longjmp(gScriptEffectContext->breakTo, 1);
 }

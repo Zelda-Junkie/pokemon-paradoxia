@@ -1,0 +1,49 @@
+mapscripts Allergy_Lady_House_MapScripts {
+}
+
+script MsD_Script {
+    lock
+    faceplayer
+    if (flag(FLAG_MET_MS_D) == false) {
+        setflag(FLAG_MET_MS_D)
+        setspeaker(SP_NAME_MS_D)
+        msgbox("Oh, a new face! You must be\nnew to Pebble Creek.\pI'm Mrs. D. Moved here from\nHoenn, studied under Prof.\lBitch himself, you know.\pBrilliant man.")
+        setspeaker(SP_NAME_MS_D)
+        msgbox("Anyway. You look like you've\ngot allergies. I can tell.")
+        setspeaker(SP_NAME_MS_D)
+        msgbox("Lucky for you, I specialize\nin allergy medicine.\pHighly effective. Locally\nsourced. Very legitimate.")
+    }
+    showmoneybox(0, 0)
+    setspeaker(SP_NAME_MS_D)
+    msgbox("You look like you could use\nsome allergy medicine.\pJust 200P a pop.\nInterested?", MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        hidemoneybox()
+        setspeaker(SP_NAME_MS_D)
+        msgbox("The allergies won't treat\nthemselves, dear.")
+        release
+        end
+    }
+    checkmoney(200)
+    if (var(VAR_RESULT) == FALSE) {
+        hidemoneybox()
+        setspeaker(SP_NAME_MS_D)
+        msgbox("Honey, allergy medicine\ndoesn't grow on trees.")
+        release
+        end
+    }
+    checkitemspace(ITEM_FULL_HEAL, 1)
+    if (var(VAR_RESULT) == FALSE) {
+        hidemoneybox()
+        setspeaker(SP_NAME_MS_D)
+        msgbox("Your bag is full.\nHow do you even live like that?")
+        release
+        end
+    }
+    removemoney(200)
+    giveitem(ITEM_FULL_HEAL)
+    hidemoneybox()
+    setspeaker(SP_NAME_MS_D)
+    msgbox("Not a Full Heal. Allergy\nmedicine. There's a difference.")
+    release
+    end
+}

@@ -1,0 +1,17 @@
+mapscripts Allergy_Lady_House_MapScripts {
+}
+
+script MsD_Script {
+    lock
+    faceplayer
+    if (flag(FLAG_MET_MS_D) == false) {
+        setflag(FLAG_MET_MS_D)
+        setspeaker(SP_NAME_MS_D)
+        msgbox("First time.")
+    }
+    showmoneybox(0, 0)
+    msgbox("Test.")
+    hidemoneybox()
+    release
+    end
+}

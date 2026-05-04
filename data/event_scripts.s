@@ -870,3 +870,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/CoppergateCity/scripts.inc"
 
 	.include "data/maps/Route999/scripts.inc"
+
+	.include "data/maps/Allergy_Lady_House/scripts.inc"
+
+	.include "data/maps/Allergy_Lady_Upstairs/scripts.inc"

@@ -2,7 +2,8 @@
   "group_order": [
     "gMapGroup_TownsAndRoutes",
     "gMapGroup_IndoorLittleroot",
-    "gMapGroup_SSEnnaDock"
+    "gMapGroup_SSEnnaDock",
+    "gMapGroup_IndoorPebbleCreek"
   ],
   "gMapGroup_TownsAndRoutes": [
     "Route109",
@@ -23,5 +24,9 @@
   ],
   "gMapGroup_SSEnnaDock": [
     "SSEnnaDeck"
+  ],
+  "gMapGroup_IndoorPebbleCreek": [
+    "Allergy_Lady_House",
+    "Allergy_Lady_Upstairs"
   ]
 }
