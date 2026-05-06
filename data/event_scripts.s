@@ -874,3 +874,9 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/Allergy_Lady_House/scripts.inc"
 
 	.include "data/maps/Allergy_Lady_Upstairs/scripts.inc"
+
+	.include "data/maps/PebblePerson/scripts.inc"
+
+	.include "data/maps/PebblePersonUpstairs/scripts.inc"
+
+	.include "data/maps/Ladder/scripts.inc"

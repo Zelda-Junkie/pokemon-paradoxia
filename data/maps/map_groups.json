@@ -27,6 +27,9 @@
   ],
   "gMapGroup_IndoorPebbleCreek": [
     "Allergy_Lady_House",
-    "Allergy_Lady_Upstairs"
+    "Allergy_Lady_Upstairs",
+    "PebblePerson",
+    "PebblePersonUpstairs",
+    "Ladder"
   ]
 }

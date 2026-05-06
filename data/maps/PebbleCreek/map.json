@@ -32,6 +32,13 @@
       "elevation": 0,
       "dest_map": "MAP_ALLERGY_LADY_HOUSE",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 10,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_PEBBLE_PERSON_UPSTAIRS",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [],

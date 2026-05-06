@@ -108,7 +108,7 @@ MsD_Script_Text_2:
 
 MsD_Script_Text_3:
 # 18 "data/maps/Allergy_Lady_House/scripts.pory"
-	.string "You look like you could use\nsome allergy medicine.\pJust 200P a pop.\nInterested?$"
+	.string "Just ¥200 a pop.\nInterested?$"
 
 MsD_Script_Text_4:
 # 22 "data/maps/Allergy_Lady_House/scripts.pory"

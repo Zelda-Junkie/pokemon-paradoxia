@@ -1,0 +1,33 @@
+mapscripts PebblePerson_MapScripts{
+}
+
+script Pebble_Person_Script {
+    lock
+    faceplayer
+    if (flag(FLAG_MET_PEBBLE_PERSON) == false) {
+        setflag(FLAG_MET_PEBBLE_PERSON)
+        setspeaker(SP_NAME_PEBBLE_PRO)
+        msgbox("Oh! A visitor! Welcome to my cave!\nI dug it myself, by the way.\lMy brother says I have too much\penergy. He's probably right.\nI just don't like going outside much.\lBut down here? Perfect.\pI'm on a mission, you see.\nThe PERFECT PEBBLE is out there.\lI've actually found it a few times!\pBut it always disappears after.\nEvery single time. Just... gone.\lI think someone's stealing them.\pDon't look at me like that.\nIt's a very serious problem.")
+        closemessage
+        release
+        end
+    }
+    setspeaker(SP_NAME_PEBBLE_PRO)
+    msgbox("Still no perfect pebble.\nStill disappearing.\lThe thief strikes again.\pEvery time. Every single time.")
+    closemessage
+    release
+    end
+}
+movement Movement_Spinning {
+    face_right
+    walk_right
+    face_down
+    walk_down
+    face_left
+    walk_left
+    face_up
+    walk_up
+    step_end
+}git add -A
+git commit -m "Added Pebble Maniac; Fixed collision"
+git push

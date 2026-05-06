@@ -9433,6 +9433,36 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/Allergy_Lady_Upstairs/border.bin",
       "blockdata_filepath": "data/layouts/Allergy_Lady_Upstairs/map.bin"
+    },
+    {
+      "id": "LAYOUT_PEBBLE_PERSON",
+      "name": "PebblePerson_Layout",
+      "width": 10,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/PebblePerson/border.bin",
+      "blockdata_filepath": "data/layouts/PebblePerson/map.bin"
+    },
+    {
+      "id": "LAYOUT_PEBBLE_PERSON_UPSTAIRS",
+      "name": "PebblePersonUpstairs_Layout",
+      "width": 10,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/PebblePersonUpstairs/border.bin",
+      "blockdata_filepath": "data/layouts/PebblePersonUpstairs/map.bin"
+    },
+    {
+      "id": "LAYOUT_LADDER",
+      "name": "Ladder_Layout",
+      "width": 11,
+      "height": 5,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Ladder/border.bin",
+      "blockdata_filepath": "data/layouts/Ladder/map.bin"
     }
   ]
 }

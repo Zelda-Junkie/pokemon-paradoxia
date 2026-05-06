@@ -15,6 +15,7 @@ enum SpeakerNames {
     SP_NAME_WILLOW,
     SP_NAME_MS_D,
     SP_NAME_CLARISE,
+    SP_NAME_PEBBLE_PRO,
     SP_NAME_COUNT
 };
 
@@ -32,4 +33,5 @@ enum SpeakerNames {
 #define SP_NAME_WILLOW       10
 #define SP_NAME_MS_D         11
 #define SP_NAME_CLARISE      12
+#define SP_NAME_PEBBLE_PRO   13
 #endif // GUARD_CONSTANTS_SPEAKER_NAMES_H

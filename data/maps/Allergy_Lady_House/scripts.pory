@@ -15,7 +15,7 @@ script MsD_Script {
     }
     showmoneybox(0, 0)
     setspeaker(SP_NAME_MS_D)
-    msgbox("You look like you could use\nsome allergy medicine.\pJust 200P a pop.\nInterested?", MSGBOX_YESNO)
+    msgbox("Just ¥200 a pop.\nInterested?", MSGBOX_YESNO)
     if (var(VAR_RESULT) == NO) {
         hidemoneybox()
         setspeaker(SP_NAME_MS_D)

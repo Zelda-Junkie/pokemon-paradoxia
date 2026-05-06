@@ -1,9 +1,25 @@
 # POKEMON: PARADOXIA
 ## Game Design Document
-### Session 19 — Full Design Bible
-#### April 2026
+### Session 20 — Full Design Bible
+#### May 2026
 
 *The living game design document for Pokemon: Paradoxia — a ROM hack built on Pokemon Emerald using the pokeemerald Expansion base. Updated at the end of every design session.*
+
+---
+
+## Session 20 Changes
+- **Mrs. D (Allergy Lady) script complete and working** — Pebble Creek interior house. Sells Full Heals for 200P (half price). First-visit intro dialogue fires once via `FLAG_MET_MS_D` (0x3EB). Repeat visit goes straight to shop. Uses manual `checkmoney`/`checkitemspace`/`removemoney`/`giveitem` pattern (NOT `pokemart` — see technical note below).
+- **Allergy Lady House and Allergy Lady Upstairs maps created** in Porymap — `gMapGroup_IndoorPebbleCreek` group. Primary: `gTileset_Building`, Secondary: `gTileset_GenericBuilding`.
+- **`showmoneybox` crash fixed** — root cause: `Script_RequestEffects_Internal` in `src/script.c` dereferenced `gScriptEffectContext` without a NULL check. `gScriptEffectContext` is only set inside `RunScriptImmediatelyUntilEffect_Internal` — calling `showmoneybox` outside that context caused a null pointer dereference, jumping to `77777776`. Fix: added `if (gScriptEffectContext == NULL) return;` guard at line 643. Same guard added to `Script_GotoBreak_Internal` at line 607.
+- **`CountDigits` stub fixed** — was stubbed as `void CountDigits(void) {}` in `paradoxia_stubs.c` but declared as `u32 CountDigits(u32 amount)` in headers. Called by `CalculateMoneyTextHorizontalPosition` inside `PrintMoneyAmountInMoneyBox`. Returning void caused the money box render to crash. Fixed with proper implementation.
+- **Multiple stub return types fixed** — grep identified stubs declared `void` in `paradoxia_stubs.c` but with non-void return types in headers. Fixed: `CurMapIsSecretBase` → `bool8`, `SecretBaseMapPopupEnabled` → `bool8`, `TrySetCurSecretBase` → `bool8`, `GetSecretBaseTrainerLoseText` → `const u8*`, `GetSecretBaseMapName` → `u8*`, `GetLocationMusic` → `u16`, `ObjectEventIsFarawayIslandMew` → `bool8`, `ShouldMewShakeGrass` → `bool8`, `GetMewMoveDirection` → `u32`, `IsMewPlayingHideAndSeek` → `bool8`, `ShouldDoBrailleRegicePuzzle` → `bool8`, `ShouldDoBrailleDigEffect` → `bool8`, `ShouldDoBrailleRegisteelEffect` → `bool8`, `ShouldDoBrailleRegirockEffect` → `bool8`, `IsPokeNewsActive` → `bool8`, `ShouldAirFrontierTVShow` → `bool8`, `IsGabbyAndTyShowOnTheAir` → `bool8`, `CheckForPlayersHouseNews` → `u8`, `CountPlayerMuseumPaintings` → `u8`, `GetPlayerIDAsU32` → `u32`, `GetRibbonCount` → `u8`, `Put3CheersForPokeblocksOnTheAir` → `bool8`.
+- **Move Relearner stubbed** — `gRelearnMode`, `gMoveRelearnerState`, `CanBoxMonRelearnMoves`, `HasMovesToRelearn`, `TeachMoveRelearnerMove`, `CB2_InitLearnMove`, `MoveRelearnerShowHideCategoryIcon`, `MoveRelearnerShowHideHearts` all stubbed in `paradoxia_stubs.c` with correct signatures from `include/move_relearner.h`. **Move Relearner is a planned feature — do not delete these stubs.**
+- **Wonder Card/News and Mon Markings stubbed** — `WonderCard_Exit/Destroy/Enter/Init`, `WonderNews_Exit/Destroy/Enter/Init/GetInput/RemoveScrollIndicatorArrowPair/AddScrollIndicatorArrowPair`, `UpdateMonMarkingTiles`, `HandleMonMarkingsMenuInput`, `FreeMonMarkingsMenu`, `OpenMonMarkingsMenu`, `InitMonMarkingsMenu`, `BufferMonMarkingsMenuTiles`, `CreateMonMarkingComboSprite`, `CreateMonMarkingAllCombosSprite` all stubbed.
+- **Willow pre-gym confront script working** — BramblewoodTown. Trigger at (7, 20) fires `Willow_Confront_1`. Willow walks to trigger tile, confronts player. Checks `FLAG_DEFEATED_RUSTBORO_GYM` (repurposed as Bramblewood gym flag). `FLAG_MET_MS_D` fixed from vanilla `0x96` to custom `0x3EB`.
+- **Money symbol changed** — currency symbol changed from `P` to the Pokémoney symbol (represented as `¥` in code). Not committed.
+- **Mrs. D character designed** — NPC in Allergy Lady House, Pebble Creek. Hoenn expat. Refers to Prof. Birch as "Prof. Bitch" without awareness. Sells "allergy medicine" (Full Heals, 200P). Daughter upstairs is Clarise — Mrs. D calls her Tina. Has always called her Tina. Has never considered why.
+- **Clarise/Tina character designed** — upstairs in Allergy Lady House. Real name Clarise. Mrs. D calls her Tina. She has stopped asking why. Dialogue to be written next session.
+- **Pebble Creek pebble-obsessed roommate concept** — Reddit brainstorm. Two residents in a southern house: one normal, one completely obsessed with finding "the perfect pebble." The perfect pebble keeps disappearing. The roommate actually steals the pebble. The pebbles are actually the evolutionary stones and the roommate sells them to you. Later, after you beat the first gym, they give you an Eevee. To be implemented next session.
 
 ---
 
@@ -166,7 +182,7 @@ Aumnis, sealed but not silenced, snored. The snore partially woke Taesim. Taesim
 ### Downstream Effects
 Zemekis MFG was founded in response to the destabilisation. Nobody recorded why. The institutional knowledge was lost so gradually that nobody noticed. The machines are making something. Nobody knows what MFG stands for.
 
-Team Proper was founded by Ashley in response to the same destabilisation. Ashley is aware something ancient went wrong. She does not know what. She built rules because rules felt like doing something. She got lost in them.
+Team Proper was founded by Ashley in response to the same destabilisation. They're primary goal is to enforce rules to try to restore peace upon the land. Ashley is aware something ancient went wrong. She does not know what. She built rules because rules felt like doing something. She got lost in her own gym and in that time, Team Proper has lost sight of their goals
 
 Verit retreated to the archive in Dunhallow manor and has been cataloguing every anomaly since the conflict began. The solution is in there somewhere, stored in easily breakable crystals on a table. Verit is a cat. The crystals have been knocked off the table. The solution is in fragments on the floor.
 
@@ -205,7 +221,7 @@ Aldric has been on Ostenvale his entire life. He knows his lineage is tied to wh
 
 | Town | Position | Notable |
 |---|---|---|
-| Pebble Creek | Bramblewood → Coppergate | Two-tile bridge blocked by a full picnic. The Sandwich Person. The beginning of everything. |
+| Pebble Creek | Bramblewood → Coppergate | Two-tile bridge blocked by a full picnic. The Sandwich Person. The beginning of everything. Mrs. D's allergy medicine house. The pebble-obsessed roommate. |
 | Passwick | Coppergate → Tidewell | Pit stop on the northern loop. Tunnel entrance visible but inaccessible. Town is obsessed with the tunnel. |
 | Restmere | Tidewell → Greenbarrow | Inhabitants have an insanely short memory. Everything runs on habit and muscle memory. |
 | Midfare | Inside the mountain / tunnel hub | Transit hub. Everyone passing through, nobody staying. Tunnel arms to Gen 4/5, Gen 6/7, Gen 8/9. |
@@ -582,6 +598,8 @@ Post-battle: Steps aside. Leaves Ostenvale for the first time in years. Doesn't 
 | PC Architect | Loupe | Restmere | Rediscovers her own invention every thirty minutes. The PC system works flawlessly because of this. |
 | The Captain | — | S.S. Enna dock | Found Paradoxia by accident. Never leaves the boat. Slowly giving wrong answers about where things are. |
 | The Sandwich Person | — | Pebble Creek / Ostenvale | Does not move. Has never moved, as far as anyone knows. Ended up in the Elite Four somehow. |
+| Mrs. D | — | Allergy Lady House, Pebble Creek | Hoenn expat. Studied under "Prof. Bitch." Sells allergy medicine (Full Heals, 200P). Has never accepted they are Full Heals. |
+| Clarise ("Tina") | — | Allergy Lady Upstairs, Pebble Creek | Mrs. D's daughter. Real name Clarise. Mrs. D calls her Tina. Has stopped asking why. |
 
 ---
 
@@ -615,7 +633,7 @@ Post-battle: Steps aside. Leaves Ostenvale for the first time in years. Doesn't 
 | Murkcalm | Poison/Water | Austen | Looks exactly like still swamp water. Is not still swamp water. |
 | Formcinder | Fire/Steel | Ashley | Compacted paperwork on fire for an indeterminate amount of time. |
 | Cairn | Rock/Ghost | Hobb | A burial marker that got up. Doesn't know why. Keeps walking. |
-| Orefield | Ground/Electric | Aldous | Aldous thinks it's Ground. Sign says Steel. It's Ground/Electric. |
+| Orefield | Ground/Electric | Aldous | Aldous thinks it's Ground. Sign says Steel. |
 | Whimsoveil | Fairy/Normal | Doc & Doc | Ability actively cancels whatever the last move did. |
 
 ### Original Pokemon — Wild & Regional (22)
@@ -673,7 +691,7 @@ Post-battle: Steps aside. Leaves Ostenvale for the first time in years. Doesn't 
 ### Key Technical Notes
 - **Vanilla NPC stubs**: LittlerootTown/map.json, Route109/map.json, and LittlerootTown_ProfessorBirchsLab/map.json each contain hidden vanilla NPCs (hidden via existing vanilla flags) to satisfy linker references in vanilla scripts not yet removed. These are persistent — do not remove without also gutting the vanilla scripts that reference them.
 - **Porymap save behaviour**: Saving a map in Porymap regenerates events.inc and header.inc from map.json. Any manual edits to those generated files will be overwritten. Always edit map.json directly.
-- **Poryscript compilation**: .pory files are NOT automatically compiled by make. Run poryscript manually after editing. Raw assembly in .pory files must be wrapped in `raw \`` backtick blocks. Map script directives (map_script, map_script_2) are native poryscript — do not wrap in raw.
+- **Poryscript compilation**: .pory files are NOT automatically compiled by make. Run poryscript manually after editing. Use native poryscript syntax (mapscripts block, inline msgbox text, if/flag/var blocks) rather than raw blocks wherever possible — raw blocks do not go through the C preprocessor and cannot resolve constants like VAR_RESULT, NO, FALSE, ITEM_* etc.
 - **LOCALIDs in raw .inc files**: Raw assembly .inc files do not go through the C preprocessor. #define constants must be added directly at the top of the .inc file if not otherwise available.
 - **VAR_ENNA_INTRO_STATE**: Defined at 0x40F7 in include/constants/vars.h. Memory address 0x020371EE. Chain: 21 (new game) → 22 (deck) → 23 (dock) → 24 (transition) → 25 (Bramblewood) → 26 (lab).
 - **map.inc `.ifdef` macro**: The `.ifdef \map_id` check in `asm/macros/map.inc` has been removed. C preprocessor `#define` stubs are expanded to numbers before the assembler runs, making the symbol name invisible to `.ifdef`. The macro now outputs bytes directly. Do not restore the `.ifdef` check.
@@ -681,6 +699,13 @@ Post-battle: Steps aside. Leaves Ostenvale for the first time in years. Doesn't 
 - **Linker stub strategy**: Deleted map scripts leave dangling symbol references in vanilla C source (battle_tower.c, field_specials.c, etc.). All stubs live in `src/paradoxia_stubs.c` — text strings as `const u8 Symbol[] = {0xFF};`, scripts as `{0x02}` (end), movement scripts as `{0xFE}` (step_end). COMPLETE (Session 17).
 - **Layout regeneration**: Porymap 6.3 does not regenerate layout entries for maps it considers unmodified. If layout symbols go missing, use the Python script approach: read from `data/layouts/layouts.json` and append entries directly to `layouts.inc` and `layouts_table.inc`. Do not edit those files by hand otherwise — they are Porymap-managed.
 - **Poryscript path**: Binary is `./tools/poryscript` (single file at project root). Config files `command_config.json` and `font_config.json` are also at project root. Full command: `./tools/poryscript -i [input] -o [output] -cc command_config.json -fc font_config.json`. Poryscript is NOT run automatically by make — compile manually after editing any .pory file.
+- **pokemart crash**: The vanilla `pokemart` script command crashes in interior maps due to `BuyMenuDrawMapBg` dereferencing the secondary tileset. Use the manual shop pattern instead: `showmoneybox` → `msgbox YESNO` → `checkmoney` → `checkitemspace` → `removemoney` → `giveitem`. See Mrs. D's script for the full working pattern.
+- **showmoneybox crash fix**: `Script_RequestEffects_Internal` in `src/script.c` must have a NULL guard on `gScriptEffectContext` before dereferencing. Added at line 643. Same guard added to `Script_GotoBreak_Internal` at line 607. Without this, calling `showmoneybox` outside `RunScriptImmediatelyUntilEffect` context crashes with `77777776`.
+- **Stub return types**: Stubs declared `void` in `paradoxia_stubs.c` but with non-void return types in headers will cause downstream crashes — typically manifesting as `77777776` jumps to invalid addresses. Run `grep -n "^void" src/paradoxia_stubs.c | awk -F'[( ]' '{print $2}' | while read func; do grep -rn "^[^v].*$func(" include/ 2>/dev/null | head -1; done | grep -v "^$"` to audit. All identified mismatches fixed in Session 20.
+- **Money symbol**: Currency symbol changed from `P` to Pokémoney symbol (represented as `$` in code). Not a standalone commit.
+- **Move Relearner**: Stubbed in `paradoxia_stubs.c` with correct signatures. Planned feature — do not remove stubs.
+- **FLAG_MET_MS_D**: Defined at `0x3EB` in `include/constants/flags.h`. Custom flag range continues from `0x3EA` (FLAG_HIDE_DOCK_BEA).
+- **Custom flag range**: `0x3E8–0x3EA` (dock hide flags), `0x3EB` (FLAG_MET_MS_D), `0x961–0x969` (intro hide flags). FLAGS_COUNT currently `0x96A`.
 
 ---
 
@@ -688,23 +713,25 @@ Post-battle: Steps aside. Leaves Ostenvale for the first time in years. Doesn't 
 
 | Priority | Task |
 |---|---|
-| 1 | Fix `paradoxia_stubs.c` — strip duplicate stubs from botched heredoc, re-append Contest/TV/SecretBase/Frontier/Misc stubs correctly with proper struct types (`void*` for incomplete types, or include correct headers) |
-| 2 | Remake starter selection — FRLG-style table presentation; three Pokéballs on a table, player walks up to choose, Doc B assigns type-advantage to Bea without looking |
-| 3 | Wire Bea battle after starter selection in lab |
-| 4 | Place Pebble Creek NPCs and events — Pokémon Center nurse, Mart clerk, house residents, The Sandwich Person on the bridge |
-| 5 | Swap Bramblewood tileset in Porymap — replace Littleroot tiles with appropriate starter town tileset |
-| 6 | Place Bramblewood buildings and NPCs in Porymap — lab, houses, child, old man, laundry woman |
-| 7 | Test Plugrass in-game — cry, sprite, stats, encounter |
-| 8 | Place Route 1000 events and NPCs — trainers, wild grass encounters, signage |
-| 9 | Design underground encounter tables for each tunnel arm (Gen 4/5, Gen 6/7, Gen 8/9) |
-| 10 | Design Vale's full team and battle script |
-| 11 | Design The Sandwich Person's full team |
-| 12 | Design Aldric's full team — balanced, deliberate, feels like a test not an obstacle |
-| 13 | Write pit stop town NPC dialogue for Passwick, Restmere, Cableville |
-| 14 | Confirm Pelipper Drizzle availability in pokeemerald Expansion for Doc & Doc's team |
-| 15 | Implement nameplate system for cutscene dialogue (deferred — low priority vs. content work) |
-| 16 | Score the game — all music decisions made against finished content, not in isolation |
-| 17 | Strip vanilla C files referencing removed content — long-term cleanup to shrink stub count |
+| 1 | Remake starter selection — FRLG-style table presentation; three Pokéballs on a table, player walks up to choose, Doc B assigns type-advantage to Bea without looking |
+| 2 | Wire Bea battle after starter selection in lab |
+| 3 | Write Clarise ("Tina") dialogue — upstairs in Allergy Lady House. Real name Clarise. Mrs. D calls her Tina. She has stopped asking why. |
+| 4 | Implement pebble-obsessed roommate — southern house in Pebble Creek. Two residents: one normal, one completely obsessed with finding the perfect pebble. The roommate doesn't know. |
+| 5 | Place remaining Pebble Creek NPCs and events — Pokémon Center nurse, Mart clerk, house residents, The Sandwich Person on the bridge |
+| 6 | Swap Bramblewood tileset in Porymap — replace Littleroot tiles with appropriate starter town tileset |
+| 7 | Place Bramblewood buildings and NPCs in Porymap — lab, houses, child, old man, laundry woman |
+| 8 | Test Plugrass in-game — cry, sprite, stats, encounter |
+| 9 | Place Route 1000 events and NPCs — trainers, wild grass encounters, signage |
+| 10 | Design underground encounter tables for each tunnel arm (Gen 4/5, Gen 6/7, Gen 8/9) |
+| 11 | Design Vale's full team and battle script |
+| 12 | Design The Sandwich Person's full team |
+| 13 | Design Aldric's full team — balanced, deliberate, feels like a test not an obstacle |
+| 14 | Write pit stop town NPC dialogue for Passwick, Restmere, Cableville |
+| 15 | Confirm Pelipper Drizzle availability in pokeemerald Expansion for Doc & Doc's team |
+| 16 | Implement Move Relearner (stubs in place, feature planned) |
+| 17 | Implement nameplate system for cutscene dialogue (deferred — low priority vs. content work) |
+| 18 | Score the game — all music decisions made against finished content, not in isolation |
+| 19 | Strip vanilla C files referencing removed content — long-term cleanup to shrink stub count |
 
 **DONE**
 - Get a compilable clean build running in mGBA — COMPLETE (Session 11)
@@ -733,10 +760,14 @@ Post-battle: Steps aside. Leaves Ostenvale for the first time in years. Doesn't 
 - All ~350 linker undefined references resolved — clean link achieved — COMPLETE (Session 17)
 - src/paradoxia_stubs.c created — COMPLETE (Session 17)
 - Bramblewood exterior crash fixed — COMPLETE (Session 17)
-
 - Pebble Creek map layout completed in Porymap — COMPLETE (Session 19)
 - Route109 → BramblewoodTown direct map connection working — COMPLETE (Session 18/19)
+- Fix paradoxia_stubs.c stub return types — COMPLETE (Session 20)
+- Mrs. D allergy med shop working — COMPLETE (Session 20)
+- showmoneybox crash fixed — COMPLETE (Session 20)
+- Willow pre-gym confront script working — COMPLETE (Session 20)
+- Money symbol changed to Pokémoney symbol — COMPLETE (Session 20)
 
 ---
 
-*Pokemon: Paradoxia — Game Design Document. Updated end of Session 19 — April 2026.*
+*Pokemon: Paradoxia — Game Design Document. Updated end of Session 20 — May 4, 2026. May the 4th be with you.*
