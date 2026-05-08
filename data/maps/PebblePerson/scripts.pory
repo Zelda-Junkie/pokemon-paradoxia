@@ -28,6 +28,4 @@ movement Movement_Spinning {
     face_up
     walk_up
     step_end
-}git add -A
-git commit -m "Added Pebble Maniac; Fixed collision"
-git push
+}

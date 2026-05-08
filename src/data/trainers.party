@@ -16873,3 +16873,39 @@ Double Battle: No
 Kyogre
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_BEA_FUECOCO ===
+Name: Bea
+Class: Pkmn Trainer 1
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+
+Fuecoco
+Level: 5
+
+=== TRAINER_BEA_QUAXLY ===
+Name: Bea
+Class: Pkmn Trainer 1
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+
+Quaxly
+Level: 5
+
+=== TRAINER_BEA_SPRIGATITO ===
+Name: Bea
+Class: Pkmn Trainer 1
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+
+Sprigatito
+Level: 5

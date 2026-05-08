@@ -1,11 +1,29 @@
 # POKEMON: PARADOXIA
 ## Game Design Document
-### Session 20 — Full Design Bible
+### Session 21 — Full Design Bible
 #### May 2026
 
 *The living game design document for Pokemon: Paradoxia — a ROM hack built on Pokemon Emerald using the pokeemerald Expansion base. Updated at the end of every design session.*
 
 ---
+
+## Session 21 Changes
+- **Bea battle on Route 1000 fully working end-to-end** — trigger tile fires, Bea sprints to player, pre-battle dialogue plays, battle starts, post-battle dialogue plays correctly, items given, goodbye line fires, Bea walks off map, `FLAG_DEFEATED_BEA_1000` set, trigger disabled permanently.
+- **Root cause of goodbye not firing identified** — `trainerbattle_single` does not automatically continue to the next script line after battle ends. Fixed by passing `Route1000_EventScript_BeaPostBattleCheck` as the fourth argument to `trainerbattle_single`. The `goto` after each battle call was never reached.
+- **`giveitem` with quantity argument fixed** — `giveitem` does not accept a quantity argument. Replaced all multi-item `giveitem` calls with `additem ITEM, QUANTITY` throughout `BeaGiveItems`.
+- **Flag check moved before movement** — `goto_if_set FLAG_DEFEATED_BEA_1000` now fires at the very top of each trigger script before any `applymovement` call. Previously the flag check was inside `BeaStart` after movement had already run, causing Bea to walk and face wrong when the trigger refired post-completion.
+- **`BeaStart` label removed** — was an unnecessary middleman between trigger and flag check. Triggers now go directly to flag check → dialogue → battle.
+- **Trainer tool v5 written** — writes to both `src/data/trainers.party` (Showdown format) and `include/constants/opponents.h` (auto-increments `TRAINERS_COUNT_EMERALD`). Duplicate check against both files. Warns on low trainer slot count. Hard stops at zero slots.
+- **`opponents.h` vs `trainers.h` architecture confirmed** — `opponents.h` is the main trainer database, manually maintained. `trainers.h` is Battle Frontier only. Tool updated to target correct file.
+- **`TRAINERS_COUNT_EMERALD` off-by-one fixed** — count must equal highest trainer index + 1. Script previously set count equal to trainer number; corrected to `trainer_num + 1`.
+- **`MAX_TRAINERS_COUNT_EMERALD` expanded** — bumped from 864 to 870 to give headroom for Martin, Bramblewood Dock Elite 4, and upcoming trainers.
+- **`TRAINER_BEA_FUECOCO` (855), `TRAINER_BEA_QUAXLY` (856), `TRAINER_BEA_SPRIGATITO` (857)** — all three defined in `opponents.h`, all three entries in `trainers.party` with correct Showdown format. Class confirmed as `Pkmn Trainer 1`.
+- **All trainer class names verified** — full list captured in tool's `CLASSES` dict. `TRAINER_CLASS_PKMN_TRAINER_2` as a class string is invalid; correct value is `Pkmn Trainer 1`.
+- **`showexclamationmark` command confirmed** — plays `!` emote above NPC. Usage: `showexclamationmark OBJ_EVENT_ID` followed by `waitmovement 0`.
+- **`hideobject` command confirmed** — hides NPC for session. For permanent hide use `setflag FLAG_HIDE_*` on the object's Porymap flag.
+- **Reddit Devlog 2 posted** — r/PokemonROMhacks. One comment: "liminal pokemon." This is a compliment.
+- **Pebble Maniac added** — community suggestion from u/NaturalFrog2. Lives in Pebble Creek.
+- **Mrs. D "Prof. Bitch" confirmed canon** — not changing it.
 
 ## Session 20 Changes
 - **Mrs. D (Allergy Lady) script complete and working** — Pebble Creek interior house. Sells Full Heals for 200P (half price). First-visit intro dialogue fires once via `FLAG_MET_MS_D` (0x3EB). Repeat visit goes straight to shop. Uses manual `checkmoney`/`checkitemspace`/`removemoney`/`giveitem` pattern (NOT `pokemart` — see technical note below).
@@ -733,6 +751,9 @@ Post-battle: Steps aside. Leaves Ostenvale for the first time in years. Doesn't 
 | 18 | Score the game — all music decisions made against finished content, not in isolation |
 | 19 | Strip vanilla C files referencing removed content — long-term cleanup to shrink stub count |
 
+- Bea battle on Route 1000 — COMPLETE (Session 21)
+- Trainer tool v5 — writes to both trainers.party and opponents.h — COMPLETE (Session 21)
+
 **DONE**
 - Get a compilable clean build running in mGBA — COMPLETE (Session 11)
 - Fix opening sequence — S.S. Enna arrival sequence scripted in full — COMPLETE (Session 12)
@@ -770,4 +791,4 @@ Post-battle: Steps aside. Leaves Ostenvale for the first time in years. Doesn't 
 
 ---
 
-*Pokemon: Paradoxia — Game Design Document. Updated end of Session 20 — May 4, 2026. May the 4th be with you.*
+*Pokemon: Paradoxia — Game Design Document. Updated end of Session 21 — May 7, 2026.*

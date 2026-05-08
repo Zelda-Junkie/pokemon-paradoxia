@@ -1,0 +1,257 @@
+raw `
+Route1000_MapScripts::
+    .byte 0
+
+Route1000_EventScript_BeaTrigger::
+    lockall
+    goto_if_set FLAG_DEFEATED_BEA_1000, Route1000_EventScript_BeaTrigger_End
+    applymovement bea, Route1000_Movement_Exclamation
+    waitmovement 0
+    applymovement bea, Route1000_Movement_BeaTrigger
+    waitmovement 0
+    msgbox Route1000_Text_Bea_Approach, MSGBOX_DEFAULT
+    msgbox Route1000_Text_Bea_PreBattle, MSGBOX_DEFAULT
+    compare VAR_STARTER_MON, 0
+    goto_if_eq Route1000_EventScript_BeaBattle_Fuecoco
+    compare VAR_STARTER_MON, 1
+    goto_if_eq Route1000_EventScript_BeaBattle_Quaxly
+    goto Route1000_EventScript_BeaBattle_Sprigatito
+
+Route1000_EventScript_BeaTrigger1::
+    lockall
+    goto_if_set FLAG_DEFEATED_BEA_1000, Route1000_EventScript_BeaTrigger_End
+    applymovement bea, Route1000_Movement_Exclamation
+    waitmovement 0
+    applymovement bea, Route1000_Movement_BeaTrigger1
+    waitmovement 0
+    msgbox Route1000_Text_Bea_Approach, MSGBOX_DEFAULT
+    msgbox Route1000_Text_Bea_PreBattle, MSGBOX_DEFAULT
+    compare VAR_STARTER_MON, 0
+    goto_if_eq Route1000_EventScript_BeaBattle_Fuecoco
+    compare VAR_STARTER_MON, 1
+    goto_if_eq Route1000_EventScript_BeaBattle_Quaxly
+    goto Route1000_EventScript_BeaBattle_Sprigatito
+
+Route1000_EventScript_BeaTrigger2::
+    lockall
+    goto_if_set FLAG_DEFEATED_BEA_1000, Route1000_EventScript_BeaTrigger_End
+    applymovement bea, Route1000_Movement_Exclamation
+    waitmovement 0
+    applymovement bea, Route1000_Movement_BeaTrigger2
+    waitmovement 0
+    msgbox Route1000_Text_Bea_Approach, MSGBOX_DEFAULT
+    msgbox Route1000_Text_Bea_PreBattle, MSGBOX_DEFAULT
+    compare VAR_STARTER_MON, 0
+    goto_if_eq Route1000_EventScript_BeaBattle_Fuecoco
+    compare VAR_STARTER_MON, 1
+    goto_if_eq Route1000_EventScript_BeaBattle_Quaxly
+    goto Route1000_EventScript_BeaBattle_Sprigatito
+
+Route1000_EventScript_BeaTrigger3::
+    lockall
+    goto_if_set FLAG_DEFEATED_BEA_1000, Route1000_EventScript_BeaTrigger_End
+    applymovement bea, Route1000_Movement_Exclamation
+    waitmovement 0
+    applymovement bea, Route1000_Movement_BeaTrigger3
+    waitmovement 0
+    msgbox Route1000_Text_Bea_Approach, MSGBOX_DEFAULT
+    msgbox Route1000_Text_Bea_PreBattle, MSGBOX_DEFAULT
+    compare VAR_STARTER_MON, 0
+    goto_if_eq Route1000_EventScript_BeaBattle_Fuecoco
+    compare VAR_STARTER_MON, 1
+    goto_if_eq Route1000_EventScript_BeaBattle_Quaxly
+    goto Route1000_EventScript_BeaBattle_Sprigatito
+
+Route1000_EventScript_BeaTrigger4::
+    lockall
+    goto_if_set FLAG_DEFEATED_BEA_1000, Route1000_EventScript_BeaTrigger_End
+    applymovement bea, Route1000_Movement_Exclamation
+    waitmovement 0
+    applymovement bea, Route1000_Movement_BeaTrigger4
+    waitmovement 0
+    msgbox Route1000_Text_Bea_Approach, MSGBOX_DEFAULT
+    msgbox Route1000_Text_Bea_PreBattle, MSGBOX_DEFAULT
+    compare VAR_STARTER_MON, 0
+    goto_if_eq Route1000_EventScript_BeaBattle_Fuecoco
+    compare VAR_STARTER_MON, 1
+    goto_if_eq Route1000_EventScript_BeaBattle_Quaxly
+    goto Route1000_EventScript_BeaBattle_Sprigatito
+
+Route1000_EventScript_BeaTrigger5::
+    lockall
+    goto_if_set FLAG_DEFEATED_BEA_1000, Route1000_EventScript_BeaTrigger_End
+    goto_if_set FLAG_DEFEATED_BEA_1000, Route1000_EventScript_BeaTrigger_End
+    applymovement bea, Route1000_Movement_BeaTrigger5
+    waitmovement 0
+    msgbox Route1000_Text_Bea_Approach, MSGBOX_DEFAULT
+    msgbox Route1000_Text_Bea_PreBattle, MSGBOX_DEFAULT
+    compare VAR_STARTER_MON, 0
+    goto_if_eq Route1000_EventScript_BeaBattle_Fuecoco
+    compare VAR_STARTER_MON, 1
+    goto_if_eq Route1000_EventScript_BeaBattle_Quaxly
+    goto Route1000_EventScript_BeaBattle_Sprigatito
+
+Route1000_EventScript_BeaBattle_Fuecoco::
+    trainerbattle_single TRAINER_BEA_FUECOCO, Route1000_Text_Bea_Intro, Route1000_Text_Bea_Defeat, Route1000_EventScript_BeaPostBattleCheck
+    end
+
+Route1000_EventScript_BeaBattle_Quaxly::
+    trainerbattle_single TRAINER_BEA_QUAXLY, Route1000_Text_Bea_Intro, Route1000_Text_Bea_Defeat, Route1000_EventScript_BeaPostBattleCheck
+    end
+
+Route1000_EventScript_BeaBattle_Sprigatito::
+    trainerbattle_single TRAINER_BEA_SPRIGATITO, Route1000_Text_Bea_Intro, Route1000_Text_Bea_Defeat, Route1000_EventScript_BeaPostBattleCheck
+    end
+
+Route1000_EventScript_BeaPostBattleCheck::
+    goto_if_set FLAG_TRAINER_FLAG_BEA_FUECOCO, Route1000_EventScript_BeaWon
+    goto_if_set FLAG_TRAINER_FLAG_BEA_QUAXLY, Route1000_EventScript_BeaWon
+    goto_if_set FLAG_TRAINER_FLAG_BEA_SPRIGATITO, Route1000_EventScript_BeaWon
+    goto Route1000_EventScript_BeaLost
+
+Route1000_EventScript_BeaWon::
+    msgbox Route1000_Text_Bea_PlayerWon, MSGBOX_DEFAULT
+    goto Route1000_EventScript_BeaGiveItems
+
+Route1000_EventScript_BeaLost::
+    msgbox Route1000_Text_Bea_PlayerLost, MSGBOX_DEFAULT
+    goto Route1000_EventScript_BeaGiveItems
+
+Route1000_EventScript_BeaGiveItems::
+    additem ITEM_POKE_BALL, 5
+    additem ITEM_FULL_HEAL, 1
+    msgbox Route1000_Text_Bea_PokeBalls, MSGBOX_DEFAULT
+    msgbox Route1000_Text_Bea_Pebble, MSGBOX_DEFAULT
+    msgbox Route1000_Text_Bea_Goodbye, MSGBOX_DEFAULT
+    setflag FLAG_DEFEATED_BEA_1000
+    applymovement bea, Route1000_Movement_BeaLeave
+    waitmovement 0
+    releaseall
+    end
+
+Route1000_EventScript_BeaTrigger_End::
+    releaseall
+    end
+
+Route1000_Movement_BeaTrigger:
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    step_end
+
+Route1000_Movement_BeaTrigger1:
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_down
+    face_right
+    step_end
+
+Route1000_Movement_BeaTrigger2:
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_down
+    walk_fast_down
+    face_right
+    step_end
+
+Route1000_Movement_BeaTrigger3:
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_down
+    walk_fast_down
+    walk_fast_down
+    face_right
+    step_end
+
+Route1000_Movement_BeaTrigger4:
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_down
+    walk_fast_down
+    walk_fast_down
+    walk_fast_down
+    face_right
+    step_end
+
+Route1000_Movement_BeaTrigger5:
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_right
+    walk_fast_down
+    walk_fast_down
+    walk_fast_down
+    walk_fast_down
+    walk_fast_down
+    face_right
+    step_end
+
+Route1000_Movement_BeaLeave:
+    face_left
+    walk_fast_left
+    walk_fast_left
+    walk_fast_left
+    walk_fast_left
+    walk_fast_left
+    walk_fast_left
+    face_down
+    walk_fast_up
+    walk_fast_up
+    walk_fast_up
+    walk_fast_up
+    walk_fast_up
+    walk_fast_up
+    step_end
+
+Route1000_Movement_Exclamation:
+    emote_exclamation_mark
+    step_end
+
+Route1000_Text_Bea_Approach::
+    .string "Hey!\nHold on a second!\p I just wanted to catch you\nbefore the grass.$"
+
+Route1000_Text_Bea_PreBattle::
+    .string "I think you should have\none battle first.\p Just to feel how it works.\nYou're ready.$"
+
+Route1000_Text_Bea_Intro::
+    .string "You've got this.\nI'm excited to see.$"
+
+Route1000_Text_Bea_Defeat::
+    .string "Hey. That was good.\nSeriously.\p Now you know what it\nfeels like. That matters.$"
+
+Route1000_Text_Bea_PlayerWon::
+    .string "That was so clean.\nDid you feel that timing?\p You trusted your choice.\nThat's huge.$"
+
+Route1000_Text_Bea_PlayerLost::
+    .string "Hey. That was good.\nSeriously.\p Now you know what it\nfeels like. That matters.$"
+
+Route1000_Text_Bea_PokeBalls::
+    .string "Here.\nTake these.\p I brought them for you\njust in case.$"
+
+Route1000_Text_Bea_Pebble::
+    .string "Oh,also.\nI found this.\p It looked like something\nyou'd keep.$"
+
+Route1000_Text_Bea_Goodbye::
+    .string "I'm heading ahead a bit.\nTake your time.\p Come find me after the\nfirst gym. I'll be there.$"
+    
