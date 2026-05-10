@@ -126,6 +126,7 @@ Route1000_EventScript_BeaGiveItems::
     setflag FLAG_DEFEATED_BEA_1000
     applymovement bea, Route1000_Movement_BeaLeave
     waitmovement 0
+    removeobject bea
     releaseall
     end
 
