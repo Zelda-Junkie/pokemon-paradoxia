@@ -9389,7 +9389,7 @@
       "name": "PebbleCreek_Layout",
       "width": 30,
       "height": 20,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_test",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/PebbleCreek/border.bin",
       "blockdata_filepath": "data/layouts/PebbleCreek/map.bin"

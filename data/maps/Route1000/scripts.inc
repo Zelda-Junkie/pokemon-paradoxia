@@ -255,23 +255,23 @@ Route1000_EventScript_BeaGiveItems::
 # 128 "data/maps/Route1000/scripts.pory"
     waitmovement 0
 # 129 "data/maps/Route1000/scripts.pory"
-    releaseall
+    removeobject bea
 # 130 "data/maps/Route1000/scripts.pory"
-    end
-# 131 "data/maps/Route1000/scripts.pory"
-
-# 132 "data/maps/Route1000/scripts.pory"
-Route1000_EventScript_BeaTrigger_End::
-# 133 "data/maps/Route1000/scripts.pory"
     releaseall
-# 134 "data/maps/Route1000/scripts.pory"
+# 131 "data/maps/Route1000/scripts.pory"
     end
-# 135 "data/maps/Route1000/scripts.pory"
+# 132 "data/maps/Route1000/scripts.pory"
 
+# 133 "data/maps/Route1000/scripts.pory"
+Route1000_EventScript_BeaTrigger_End::
+# 134 "data/maps/Route1000/scripts.pory"
+    releaseall
+# 135 "data/maps/Route1000/scripts.pory"
+    end
 # 136 "data/maps/Route1000/scripts.pory"
-Route1000_Movement_BeaTrigger:
+
 # 137 "data/maps/Route1000/scripts.pory"
-    walk_fast_right
+Route1000_Movement_BeaTrigger:
 # 138 "data/maps/Route1000/scripts.pory"
     walk_fast_right
 # 139 "data/maps/Route1000/scripts.pory"
@@ -283,13 +283,13 @@ Route1000_Movement_BeaTrigger:
 # 142 "data/maps/Route1000/scripts.pory"
     walk_fast_right
 # 143 "data/maps/Route1000/scripts.pory"
-    step_end
-# 144 "data/maps/Route1000/scripts.pory"
-
-# 145 "data/maps/Route1000/scripts.pory"
-Route1000_Movement_BeaTrigger1:
-# 146 "data/maps/Route1000/scripts.pory"
     walk_fast_right
+# 144 "data/maps/Route1000/scripts.pory"
+    step_end
+# 145 "data/maps/Route1000/scripts.pory"
+
+# 146 "data/maps/Route1000/scripts.pory"
+Route1000_Movement_BeaTrigger1:
 # 147 "data/maps/Route1000/scripts.pory"
     walk_fast_right
 # 148 "data/maps/Route1000/scripts.pory"
@@ -301,17 +301,17 @@ Route1000_Movement_BeaTrigger1:
 # 151 "data/maps/Route1000/scripts.pory"
     walk_fast_right
 # 152 "data/maps/Route1000/scripts.pory"
-    walk_fast_down
-# 153 "data/maps/Route1000/scripts.pory"
-    face_right
-# 154 "data/maps/Route1000/scripts.pory"
-    step_end
-# 155 "data/maps/Route1000/scripts.pory"
-
-# 156 "data/maps/Route1000/scripts.pory"
-Route1000_Movement_BeaTrigger2:
-# 157 "data/maps/Route1000/scripts.pory"
     walk_fast_right
+# 153 "data/maps/Route1000/scripts.pory"
+    walk_fast_down
+# 154 "data/maps/Route1000/scripts.pory"
+    face_right
+# 155 "data/maps/Route1000/scripts.pory"
+    step_end
+# 156 "data/maps/Route1000/scripts.pory"
+
+# 157 "data/maps/Route1000/scripts.pory"
+Route1000_Movement_BeaTrigger2:
 # 158 "data/maps/Route1000/scripts.pory"
     walk_fast_right
 # 159 "data/maps/Route1000/scripts.pory"
@@ -323,19 +323,19 @@ Route1000_Movement_BeaTrigger2:
 # 162 "data/maps/Route1000/scripts.pory"
     walk_fast_right
 # 163 "data/maps/Route1000/scripts.pory"
-    walk_fast_down
+    walk_fast_right
 # 164 "data/maps/Route1000/scripts.pory"
     walk_fast_down
 # 165 "data/maps/Route1000/scripts.pory"
-    face_right
+    walk_fast_down
 # 166 "data/maps/Route1000/scripts.pory"
-    step_end
+    face_right
 # 167 "data/maps/Route1000/scripts.pory"
-
+    step_end
 # 168 "data/maps/Route1000/scripts.pory"
-Route1000_Movement_BeaTrigger3:
+
 # 169 "data/maps/Route1000/scripts.pory"
-    walk_fast_right
+Route1000_Movement_BeaTrigger3:
 # 170 "data/maps/Route1000/scripts.pory"
     walk_fast_right
 # 171 "data/maps/Route1000/scripts.pory"
@@ -347,21 +347,21 @@ Route1000_Movement_BeaTrigger3:
 # 174 "data/maps/Route1000/scripts.pory"
     walk_fast_right
 # 175 "data/maps/Route1000/scripts.pory"
-    walk_fast_down
+    walk_fast_right
 # 176 "data/maps/Route1000/scripts.pory"
     walk_fast_down
 # 177 "data/maps/Route1000/scripts.pory"
     walk_fast_down
 # 178 "data/maps/Route1000/scripts.pory"
-    face_right
+    walk_fast_down
 # 179 "data/maps/Route1000/scripts.pory"
-    step_end
+    face_right
 # 180 "data/maps/Route1000/scripts.pory"
-
+    step_end
 # 181 "data/maps/Route1000/scripts.pory"
-Route1000_Movement_BeaTrigger4:
+
 # 182 "data/maps/Route1000/scripts.pory"
-    walk_fast_right
+Route1000_Movement_BeaTrigger4:
 # 183 "data/maps/Route1000/scripts.pory"
     walk_fast_right
 # 184 "data/maps/Route1000/scripts.pory"
@@ -373,7 +373,7 @@ Route1000_Movement_BeaTrigger4:
 # 187 "data/maps/Route1000/scripts.pory"
     walk_fast_right
 # 188 "data/maps/Route1000/scripts.pory"
-    walk_fast_down
+    walk_fast_right
 # 189 "data/maps/Route1000/scripts.pory"
     walk_fast_down
 # 190 "data/maps/Route1000/scripts.pory"
@@ -381,15 +381,15 @@ Route1000_Movement_BeaTrigger4:
 # 191 "data/maps/Route1000/scripts.pory"
     walk_fast_down
 # 192 "data/maps/Route1000/scripts.pory"
-    face_right
+    walk_fast_down
 # 193 "data/maps/Route1000/scripts.pory"
-    step_end
+    face_right
 # 194 "data/maps/Route1000/scripts.pory"
-
+    step_end
 # 195 "data/maps/Route1000/scripts.pory"
-Route1000_Movement_BeaTrigger5:
+
 # 196 "data/maps/Route1000/scripts.pory"
-    walk_fast_right
+Route1000_Movement_BeaTrigger5:
 # 197 "data/maps/Route1000/scripts.pory"
     walk_fast_right
 # 198 "data/maps/Route1000/scripts.pory"
@@ -401,7 +401,7 @@ Route1000_Movement_BeaTrigger5:
 # 201 "data/maps/Route1000/scripts.pory"
     walk_fast_right
 # 202 "data/maps/Route1000/scripts.pory"
-    walk_fast_down
+    walk_fast_right
 # 203 "data/maps/Route1000/scripts.pory"
     walk_fast_down
 # 204 "data/maps/Route1000/scripts.pory"
@@ -411,17 +411,17 @@ Route1000_Movement_BeaTrigger5:
 # 206 "data/maps/Route1000/scripts.pory"
     walk_fast_down
 # 207 "data/maps/Route1000/scripts.pory"
-    face_right
+    walk_fast_down
 # 208 "data/maps/Route1000/scripts.pory"
-    step_end
+    face_right
 # 209 "data/maps/Route1000/scripts.pory"
-
+    step_end
 # 210 "data/maps/Route1000/scripts.pory"
-Route1000_Movement_BeaLeave:
+
 # 211 "data/maps/Route1000/scripts.pory"
-    face_left
+Route1000_Movement_BeaLeave:
 # 212 "data/maps/Route1000/scripts.pory"
-    walk_fast_left
+    face_left
 # 213 "data/maps/Route1000/scripts.pory"
     walk_fast_left
 # 214 "data/maps/Route1000/scripts.pory"
@@ -433,9 +433,9 @@ Route1000_Movement_BeaLeave:
 # 217 "data/maps/Route1000/scripts.pory"
     walk_fast_left
 # 218 "data/maps/Route1000/scripts.pory"
-    face_down
+    walk_fast_left
 # 219 "data/maps/Route1000/scripts.pory"
-    walk_fast_up
+    face_down
 # 220 "data/maps/Route1000/scripts.pory"
     walk_fast_up
 # 221 "data/maps/Route1000/scripts.pory"
@@ -445,66 +445,70 @@ Route1000_Movement_BeaLeave:
 # 223 "data/maps/Route1000/scripts.pory"
     walk_fast_up
 # 224 "data/maps/Route1000/scripts.pory"
-    step_end
+    walk_fast_up
 # 225 "data/maps/Route1000/scripts.pory"
-
+    walk_fast_up
 # 226 "data/maps/Route1000/scripts.pory"
-Route1000_Movement_Exclamation:
-# 227 "data/maps/Route1000/scripts.pory"
-    emote_exclamation_mark
-# 228 "data/maps/Route1000/scripts.pory"
     step_end
+# 227 "data/maps/Route1000/scripts.pory"
+
+# 228 "data/maps/Route1000/scripts.pory"
+Route1000_Movement_Exclamation:
 # 229 "data/maps/Route1000/scripts.pory"
-
+    emote_exclamation_mark
 # 230 "data/maps/Route1000/scripts.pory"
-Route1000_Text_Bea_Approach::
+    step_end
 # 231 "data/maps/Route1000/scripts.pory"
-    .string "Hey!\nHold on a second!\p I just wanted to catch you\nbefore the grass.$"
+
 # 232 "data/maps/Route1000/scripts.pory"
-
+Route1000_Text_Bea_Approach::
 # 233 "data/maps/Route1000/scripts.pory"
-Route1000_Text_Bea_PreBattle::
+    .string "Hey!\nHold on a second!\p I just wanted to catch you\nbefore the grass.$"
 # 234 "data/maps/Route1000/scripts.pory"
-    .string "I think you should have\none battle first.\p Just to feel how it works.\nYou're ready.$"
+
 # 235 "data/maps/Route1000/scripts.pory"
-
+Route1000_Text_Bea_PreBattle::
 # 236 "data/maps/Route1000/scripts.pory"
-Route1000_Text_Bea_Intro::
+    .string "I think you should have\none battle first.\p Just to feel how it works.\nYou're ready.$"
 # 237 "data/maps/Route1000/scripts.pory"
-    .string "You've got this.\nI'm excited to see.$"
+
 # 238 "data/maps/Route1000/scripts.pory"
-
+Route1000_Text_Bea_Intro::
 # 239 "data/maps/Route1000/scripts.pory"
-Route1000_Text_Bea_Defeat::
+    .string "You've got this.\nI'm excited to see.$"
 # 240 "data/maps/Route1000/scripts.pory"
-    .string "Hey. That was good.\nSeriously.\p Now you know what it\nfeels like. That matters.$"
+
 # 241 "data/maps/Route1000/scripts.pory"
-
+Route1000_Text_Bea_Defeat::
 # 242 "data/maps/Route1000/scripts.pory"
-Route1000_Text_Bea_PlayerWon::
-# 243 "data/maps/Route1000/scripts.pory"
-    .string "That was so clean.\nDid you feel that timing?\p You trusted your choice.\nThat's huge.$"
-# 244 "data/maps/Route1000/scripts.pory"
-
-# 245 "data/maps/Route1000/scripts.pory"
-Route1000_Text_Bea_PlayerLost::
-# 246 "data/maps/Route1000/scripts.pory"
     .string "Hey. That was good.\nSeriously.\p Now you know what it\nfeels like. That matters.$"
+# 243 "data/maps/Route1000/scripts.pory"
+
+# 244 "data/maps/Route1000/scripts.pory"
+Route1000_Text_Bea_PlayerWon::
+# 245 "data/maps/Route1000/scripts.pory"
+    .string "That was so clean.\nDid you feel that timing?\p You trusted your choice.\nThat's huge.$"
+# 246 "data/maps/Route1000/scripts.pory"
+
 # 247 "data/maps/Route1000/scripts.pory"
-
+Route1000_Text_Bea_PlayerLost::
 # 248 "data/maps/Route1000/scripts.pory"
-Route1000_Text_Bea_PokeBalls::
+    .string "Hey. That was good.\nSeriously.\p Now you know what it\nfeels like. That matters.$"
 # 249 "data/maps/Route1000/scripts.pory"
-    .string "Here.\nTake these.\p I brought them for you\njust in case.$"
+
 # 250 "data/maps/Route1000/scripts.pory"
-
+Route1000_Text_Bea_PokeBalls::
 # 251 "data/maps/Route1000/scripts.pory"
-Route1000_Text_Bea_Pebble::
+    .string "Here.\nTake these.\p I brought them for you\njust in case.$"
 # 252 "data/maps/Route1000/scripts.pory"
-    .string "Oh,also.\nI found this.\p It looked like something\nyou'd keep.$"
-# 253 "data/maps/Route1000/scripts.pory"
 
+# 253 "data/maps/Route1000/scripts.pory"
+Route1000_Text_Bea_Pebble::
 # 254 "data/maps/Route1000/scripts.pory"
-Route1000_Text_Bea_Goodbye::
+    .string "Oh,also.\nI found this.\p It looked like something\nyou'd keep.$"
 # 255 "data/maps/Route1000/scripts.pory"
+
+# 256 "data/maps/Route1000/scripts.pory"
+Route1000_Text_Bea_Goodbye::
+# 257 "data/maps/Route1000/scripts.pory"
     .string "I'm heading ahead a bit.\nTake your time.\p Come find me after the\nfirst gym. I'll be there.$"
