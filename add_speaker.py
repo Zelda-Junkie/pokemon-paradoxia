@@ -16,7 +16,7 @@ def get_current_speakers(constants):
     defines = re.findall(r"#define (SP_NAME_\w+)\s+(\d+)", constants)
     return {name: int(val) for name, val in defines}
 
-def main():
+def main(): 
     print("=== Paradoxia Speaker Name Adder ===\n")
 
     code_name = input("Code name (e.g. DOC_B, BEA, GRUNT): ").strip().upper()

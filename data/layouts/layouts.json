@@ -590,7 +590,7 @@
       "width": 11,
       "height": 9,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "secondary_tileset": "gTileset_Condominiums",
       "border_filepath": "data/layouts/LittlerootTown_BrendansHouse_1F/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootTown_BrendansHouse_1F/map.bin",
       "layout_version": "emerald"
@@ -9409,7 +9409,7 @@
       "name": "CoppergateCity_Layout",
       "width": 30,
       "height": 40,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/CoppergateCity/border.bin",
       "blockdata_filepath": "data/layouts/CoppergateCity/map.bin"
