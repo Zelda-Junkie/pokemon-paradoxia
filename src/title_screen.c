@@ -50,7 +50,7 @@ static void CB2_GoToClearSaveDataScreen(void);
 static void CB2_GoToResetRtcScreen(void);
 static void CB2_GoToBerryFixScreen(void);
 static void CB2_GoToCopyrightScreen(void);
-static void UpdateLegendaryMarkingColor(u8);
+static void UpdateTitleScreenColors(u8);
 
 static void SpriteCB_VersionBannerLeft(struct Sprite *sprite);
 static void SpriteCB_VersionBannerRight(struct Sprite *sprite);
@@ -748,14 +748,16 @@ static void Task_TitleScreenPhase2(u8 taskId)
         SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(6, 15));
         SetGpuReg(REG_OFFSET_BLDY, 0);
         SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_1
-                                    | DISPCNT_OBJ_1D_MAP
-                                    | DISPCNT_BG0_ON
-                                    | DISPCNT_BG1_ON
-                                    | DISPCNT_BG2_ON
-                                    | DISPCNT_OBJ_ON);
+                            | DISPCNT_OBJ_1D_MAP
+                            | DISPCNT_BG0_ON
+                            | DISPCNT_BG1_ON
+                            | DISPCNT_BG2_ON
+                            | DISPCNT_OBJ_ON);
         CreatePressStartBanner(START_BANNER_X, 108);
         CreateCopyrightBanner(START_BANNER_X, 148);
         gTasks[taskId].tBg1Y = 0;
+        gPlttBufferFaded[0] = RGB(31, 28, 19);   // Seed sun backdrop color to avoid black flash
+        gPlttBufferUnfaded[0] = RGB(31, 28, 19); // Seed unfaded buffer too, so fade-out blends from gold not black
         gTasks[taskId].func = Task_TitleScreenPhase3;
     }
 
@@ -779,6 +781,8 @@ static void Task_TitleScreenPhase3(u8 taskId)
     if (JOY_NEW(A_BUTTON) || JOY_NEW(START_BUTTON))
     {
         FadeOutBGM(4);
+        gPlttBufferFaded[0] = RGB_WHITE;
+        gPlttBufferUnfaded[0] = RGB_WHITE;
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_WHITEALPHA);
         SetMainCallback2(CB2_GoToMainMenu);
     }
@@ -809,12 +813,7 @@ static void Task_TitleScreenPhase3(u8 taskId)
             gBattle_BG1_Y = gTasks[taskId].tBg1Y / 2;
             gBattle_BG1_X = 0;
         }
-        UpdateLegendaryMarkingColor(gTasks[taskId].tCounter);
-        if ((gMPlayInfo_BGM.status & 0xFFFF) == 0)
-        {
-            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_WHITEALPHA);
-            SetMainCallback2(CB2_GoToCopyrightScreen);
-        }
+        UpdateTitleScreenColors(gTasks[taskId].tCounter);
     }
 }
 
@@ -851,16 +850,19 @@ static void CB2_GoToBerryFixScreen(void)
     }
 }
 
-static void UpdateLegendaryMarkingColor(u8 frameNum)
+static void UpdateTitleScreenColors(u8 frameNum)
 {
-    if ((frameNum % 4) == 0) // Change color every 4th frame
+    if ((frameNum % 4) == 0)
     {
-        s32 intensity = Cos(frameNum, Q_8_8(0.5)) + Q_8_8(0.5);
-        u32 r = 31 - Q_8_8_TO_INT(intensity * 31);
-        u32 g = 31 - Q_8_8_TO_INT(intensity * 22);
-        u32 b = 12;
-
-        u16 color = RGB(r, g, b);
-        LoadPalette(&color, BG_PLTT_ID(14) + 15, sizeof(color));
-   }
+        // Sun: pulse the backdrop color - brighter baseline, slower cycle
+{
+    s32 intensity = Cos(frameNum / 2, Q_8_8(0.5)) + Q_8_8(0.5);
+    u32 r = 31;
+    u32 g = 28 + Q_8_8_TO_INT(intensity * 3);
+    u32 b = 19 + Q_8_8_TO_INT(intensity * 4);
+    u16 color = RGB(r, g, b);
+    gPlttBufferFaded[0] = color;
+    gPlttBufferUnfaded[0] = color;
+}
+    }
 }
